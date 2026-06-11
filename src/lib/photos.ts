@@ -98,13 +98,18 @@ export interface GameWithShots extends Omit<Game, "cover" | "hero"> {
   shots: Shot[];
 }
 
+// Scanned once per process — the photos folder doesn't change mid-build.
+let cached: GameWithShots[] | null = null;
+
 export function getGamesWithShots(): GameWithShots[] {
-  return GAMES.map((game) => {
+  if (cached) return cached;
+  cached = GAMES.map((game) => {
     const shots = getShots(game.slug);
     const cover = pickCover(game.slug, game.cover, shots);
     const hero = pickHero(game.slug, game.hero, shots);
     return { ...game, cover, hero, shots };
   });
+  return cached;
 }
 
 export function getGame(slug: string): GameWithShots | undefined {
