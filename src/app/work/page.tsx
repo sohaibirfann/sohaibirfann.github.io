@@ -47,8 +47,8 @@ export default function WorkPage() {
                   <p className="worktl__summary">{entry.summary}</p>
                   {entry.points.length > 0 && (
                     <ul className="worktl__points">
-                      {entry.points.map((point) => (
-                        <li key={point.slice(0, 24)}>{point}</li>
+                      {entry.points.map((point, i) => (
+                        <li key={i}>{point}</li>
                       ))}
                     </ul>
                   )}

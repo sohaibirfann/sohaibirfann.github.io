@@ -21,13 +21,13 @@ export default function ProjectEntry({ project }: { project: Project }) {
       <div className="project__body">
         <div>
           <div className="prose">
-            {project.story.map((para) => (
-              <p key={para.slice(0, 24)}>{para}</p>
+            {project.story.map((para, i) => (
+              <p key={i}>{para}</p>
             ))}
           </div>
           <ul className="project__details">
-            {project.details.map((d) => (
-              <li key={d.slice(0, 24)}>{d}</li>
+            {project.details.map((d, i) => (
+              <li key={i}>{d}</li>
             ))}
           </ul>
         </div>

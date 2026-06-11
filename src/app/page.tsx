@@ -38,8 +38,8 @@ export default function Home() {
               §01 — about
             </Reveal>
             <Reveal delay={0.08} className="prose">
-              {SITE.intro.map((para) => (
-                <p key={para.slice(0, 24)}>{para}</p>
+              {SITE.intro.map((para, i) => (
+                <p key={i}>{para}</p>
               ))}
             </Reveal>
           </div>

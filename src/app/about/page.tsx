@@ -36,8 +36,8 @@ export default function AboutPage() {
               <figcaption className="label">{SITE.role}</figcaption>
             </Reveal>
             <Reveal delay={0.1} className="prose about-prose">
-              {SITE.about.map((para) => (
-                <p key={para.slice(0, 24)}>{para}</p>
+              {SITE.about.map((para, i) => (
+                <p key={i}>{para}</p>
               ))}
             </Reveal>
           </div>
