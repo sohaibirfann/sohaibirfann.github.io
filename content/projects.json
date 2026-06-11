@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "meowproof",
+    "name": "MeowProof",
+    "year": "2026",
+    "featured": true,
+    "repo": "https://github.com/sohaibirfann/MeowProof",
+    "site": "https://sohaibirfann.github.io/MeowProof/",
+    "tagline": "A Windows tray app that locks your keyboard before the cat does.",
+    "story": [
+      "Every cat owner who works from home knows the failure mode: you step away, the cat finds the warm keyboard, and you come back to forty browser tabs and half a Slack message. MeowProof exists because that kept happening.",
+      "One click — or a hotkey — and the keyboard is locked by a low-level Windows hook, with a soft acrylic blur drawn over every monitor so it's obvious the machine is paw-proofed. The fun part is smart paw detection: it watches typing patterns across four signals (keystroke timing, key randomness, simultaneous presses, hold duration) and locks automatically when the 'typist' is clearly not human."
+    ],
+    "image": {
+      "src": "/projects/meowproof-main-window.png",
+      "alt": "MeowProof's main window over a pastel clouds wallpaper — a sleeping cat icon, 'Keyboard Unlocked', and a big Lock Keyboard button",
+      "caption": "fig. 01 — the main window, between naps"
+    },
+    "details": [
+      "System-wide low-level keyboard hook with a global unlock chord that works even while locked",
+      "Heuristic cat-vs-human detection over four typing-pattern metrics",
+      "Per-monitor glassmorphism overlay via Windows compositor acrylic effects",
+      "Auto-unlocks on sleep or session lock so you can never lock yourself out",
+      "Ships as a single self-contained .exe — no installer, no runtime to fetch"
+    ],
+    "tech": [
+      "C# 12",
+      ".NET 8",
+      "WPF",
+      "Win32 hooks"
+    ]
+  },
+  {
+    "slug": "distributed-file-system",
+    "name": "Distributed File System",
+    "year": "2026",
+    "featured": true,
+    "repo": "https://github.com/sohaibirfann/Distributed-File-System",
+    "site": "https://sohaibirfann.github.io/dfs/",
+    "tagline": "Private, end-to-end encrypted file sharing across your own group's machines.",
+    "story": [
+      "This started as my MCA major project and refused to stay an assignment. The pitch is 'WhatsApp groups, but for file storage': a small invite-only group pools the disks they already own instead of renting a cloud bucket from a stranger.",
+      "Files are encrypted client-side with AES-256-GCM before they leave the device, split into chunks, and replicated across group members' machines. One member hosts a zero-knowledge coordinator that only ever sees metadata — never file contents, never keys. The README has an 'honest caveats' section, because a security project that doesn't state its limits is lying to you."
+    ],
+    "image": {
+      "src": "/projects/distributed-file-system.svg",
+      "alt": "Architecture sketch: a zero-knowledge coordinator linked to four member nodes, each holding replicated encrypted chunks",
+      "caption": "fig. 02 — how the pieces talk to each other"
+    },
+    "details": [
+      "Client-side AES-256-GCM via the Web Crypto API — the coordinator can't read anything",
+      "Chunked storage with configurable replication for fault tolerance across nodes",
+      "Invite codes with expiry presets and one-time-use options for group control",
+      "Background transfers with progress tracking, previews, and desktop notifications",
+      "205 commits of iterating on consistency trade-offs the CAP theorem warned me about"
+    ],
+    "tech": [
+      "Electron",
+      "React",
+      "Node.js",
+      "Socket.io",
+      "SQLite",
+      "Web Crypto"
+    ]
+  }
+]

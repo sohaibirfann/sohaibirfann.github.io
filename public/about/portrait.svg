@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200">
+  <rect width="900" height="1200" fill="#e7e6dd"/>
+  <rect x="40" y="40" width="820" height="1120" fill="none" stroke="#6e6a52" stroke-width="2" stroke-dasharray="8 10" opacity="0.6"/>
+  <!-- abstract head & shoulders -->
+  <circle cx="450" cy="430" r="170" fill="#3a3935" opacity="0.9"/>
+  <path d="M150 1060 C 150 820, 330 730, 450 730 C 570 730, 750 820, 750 1060 Z" fill="#3a3935" opacity="0.9"/>
+  <text x="450" y="1115" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" letter-spacing="4" fill="#6e6a52">PORTRAIT — DROP portrait.jpg IN public/about/</text>
+</svg>

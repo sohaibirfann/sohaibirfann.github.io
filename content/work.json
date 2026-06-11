@@ -1,0 +1,36 @@
+[
+  {
+    "period": "Jul 2026 — Present",
+    "role": "AI Engineer",
+    "org": "Dummy Labs",
+    "location": "Remote",
+    "summary": "Placeholder entry — replace with your first role. This text shows how a two-line summary sits under the role title.",
+    "points": [
+      "Built and shipped a retrieval pipeline that did something measurable — keep bullets short and concrete",
+      "Second bullet demonstrating how a list of achievements reads on the timeline",
+      "Third bullet, because two looks thin and four looks like padding"
+    ],
+    "tech": ["Python", "FastAPI", "pgvector"]
+  },
+  {
+    "period": "Jan 2026 — Jun 2026",
+    "role": "Backend Engineer Intern",
+    "org": "Example Systems",
+    "location": "Kolkata, India",
+    "summary": "Another placeholder — internships and shorter stints work well as middle entries.",
+    "points": [
+      "Owned a small service end to end: design, build, deploy",
+      "Wrote the tests nobody asked for and everybody used"
+    ],
+    "tech": ["Python", "PostgreSQL", "Docker"]
+  },
+  {
+    "period": "2023 — 2025",
+    "role": "Master of Computer Applications",
+    "org": "Your University",
+    "location": "Kolkata, India",
+    "summary": "Education entries fit the same shape — CGPA 8.19, major project: a distributed file system that's now on the projects page.",
+    "points": [],
+    "tech": []
+  }
+]

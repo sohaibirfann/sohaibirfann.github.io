@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1466" height="823" viewBox="0 0 1466 823" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect width="1466" height="823" fill="#efeee6"/>
+  <g fill="none" stroke="#6e6a52" stroke-width="2" stroke-dasharray="6 7" opacity="0.55">
+    <line x1="733" y1="412" x2="300" y2="180"/>
+    <line x1="733" y1="412" x2="1166" y2="180"/>
+    <line x1="733" y1="412" x2="300" y2="644"/>
+    <line x1="733" y1="412" x2="1166" y2="644"/>
+  </g>
+  <!-- coordinator -->
+  <g>
+    <rect x="603" y="342" width="260" height="140" fill="#3a3935"/>
+    <text x="733" y="402" text-anchor="middle" fill="#f8f7f1" font-size="24" letter-spacing="4">COORDINATOR</text>
+    <text x="733" y="438" text-anchor="middle" fill="#7b786c" font-size="16" letter-spacing="2">metadata only · zero-knowledge</text>
+  </g>
+  <!-- member nodes -->
+  <g font-size="20" letter-spacing="3">
+    <g>
+      <rect x="180" y="110" width="240" height="140" fill="#f8f7f1" stroke="#3a3935" stroke-width="2"/>
+      <text x="300" y="165" text-anchor="middle" fill="#3a3935">MEMBER A</text>
+      <rect x="225" y="190" width="30" height="30" fill="#6e6a52"/>
+      <rect x="265" y="190" width="30" height="30" fill="#6e6a52" opacity="0.55"/>
+      <rect x="305" y="190" width="30" height="30" fill="#6e6a52" opacity="0.25"/>
+    </g>
+    <g>
+      <rect x="1046" y="110" width="240" height="140" fill="#f8f7f1" stroke="#3a3935" stroke-width="2"/>
+      <text x="1166" y="165" text-anchor="middle" fill="#3a3935">MEMBER B</text>
+      <rect x="1091" y="190" width="30" height="30" fill="#6e6a52" opacity="0.25"/>
+      <rect x="1131" y="190" width="30" height="30" fill="#6e6a52"/>
+      <rect x="1171" y="190" width="30" height="30" fill="#6e6a52" opacity="0.55"/>
+    </g>
+    <g>
+      <rect x="180" y="574" width="240" height="140" fill="#f8f7f1" stroke="#3a3935" stroke-width="2"/>
+      <text x="300" y="629" text-anchor="middle" fill="#3a3935">MEMBER C</text>
+      <rect x="225" y="654" width="30" height="30" fill="#6e6a52" opacity="0.55"/>
+      <rect x="265" y="654" width="30" height="30" fill="#6e6a52" opacity="0.25"/>
+      <rect x="305" y="654" width="30" height="30" fill="#6e6a52"/>
+    </g>
+    <g>
+      <rect x="1046" y="574" width="240" height="140" fill="#f8f7f1" stroke="#3a3935" stroke-width="2"/>
+      <text x="1166" y="629" text-anchor="middle" fill="#3a3935">MEMBER D</text>
+      <rect x="1091" y="654" width="30" height="30" fill="#6e6a52"/>
+      <rect x="1131" y="654" width="30" height="30" fill="#6e6a52" opacity="0.25"/>
+      <rect x="1171" y="654" width="30" height="30" fill="#6e6a52" opacity="0.55"/>
+    </g>
+  </g>
+  <text x="733" y="780" text-anchor="middle" fill="#7b786c" font-size="15" letter-spacing="3">AES-256-GCM CHUNKS, REPLICATED ACROSS THE GROUP — FILES NEVER TOUCH THE COORDINATOR</text>
+</svg>

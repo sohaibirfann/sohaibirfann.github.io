@@ -1,0 +1,88 @@
+{
+  "name": "Sohaib Irfan",
+  "shortName": "Sohaib",
+  "role": "AI & Backend Engineer",
+  "location": "Kolkata, India",
+  "tagline": "I build backend systems and AI applications in Python — and photograph the inside of video games.",
+  "showWork": false,
+  "intro": [
+    "I'm an MCA graduate who got hooked on the unglamorous parts of software: retrieval pipelines, schema design, the control loop inside an AI agent. I've built and deployed RAG systems and tool-using agents with FastAPI, PostgreSQL and pgvector — not from a framework, but from the ground up, because I wanted to know what was actually happening.",
+    "When I'm not working, I'm usually inside a game with the HUD switched off, hunting for a frame worth keeping. That habit has its own wing on this site."
+  ],
+  "links": {
+    "github": "https://github.com/sohaibirfann",
+    "linkedin": "https://www.linkedin.com/in/sohaibirfann/",
+    "email": "sohaibirfan1602@gmail.com"
+  },
+  "about": [
+    "I'm Sohaib — an MCA graduate from Kolkata who fell for the unglamorous parts of software: retrieval pipelines, schema design, the control loop inside an AI agent. I've built and deployed RAG systems and tool-using agents with FastAPI, PostgreSQL and pgvector, mostly from scratch, because I wanted to know what was actually happening underneath the frameworks.",
+    "Right now I'm looking for my first AI engineering or Python backend role, remote or onsite. I learn fastest with a real problem in front of me — which is why everything on this site is something I actually built, shipped, and wrote up by hand.",
+    "Away from the terminal I'm usually inside a game with the HUD switched off, hunting for a frame worth keeping. The photography wing of this site is that habit, archived."
+  ],
+  "contactLine": "Hiring for an AI or backend role? Want to talk RAG pipelines, distributed systems, or photo mode? My inbox is open.",
+  "skills": [
+    {
+      "group": "AI / LLM",
+      "items": [
+        "Retrieval-augmented generation",
+        "LLM APIs (Claude / OpenAI / Gemini)",
+        "Embeddings & vector search",
+        "AI agents & tool calling",
+        "Structured output generation",
+        "Prompt engineering"
+      ]
+    },
+    {
+      "group": "Backend",
+      "items": [
+        "Python",
+        "FastAPI",
+        "REST API design",
+        "Pydantic",
+        "SQLAlchemy",
+        "JWT auth",
+        "Async programming"
+      ]
+    },
+    {
+      "group": "Data",
+      "items": [
+        "PostgreSQL",
+        "pgvector",
+        "SQL & schema design",
+        "Indexing",
+        "Caching"
+      ]
+    },
+    {
+      "group": "Tools & concepts",
+      "items": [
+        "Docker",
+        "Git & GitHub",
+        "pytest",
+        "Alembic",
+        "Distributed systems",
+        "System design",
+        "Java",
+        "JavaScript"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "period": "Now",
+      "title": "Open to work",
+      "detail": "Looking for AI engineer / Python backend roles. Building in public on GitHub in the meantime."
+    },
+    {
+      "period": "2025–2026",
+      "title": "AI engineering, project by project",
+      "detail": "Completed a structured, project-based AI engineering path: a version-aware RAG assistant (~90% top-3 retrieval accuracy, hallucinations cut from 6/20 to 1/20 on an eval set), and an autonomous research agent with a hand-rolled tool-calling loop."
+    },
+    {
+      "period": "MCA",
+      "title": "Master of Computer Applications",
+      "detail": "CGPA 8.19. Major project: a distributed file system with chunking, replication and AES-256-GCM encryption — which later grew into the desktop app below."
+    }
+  ]
+}
