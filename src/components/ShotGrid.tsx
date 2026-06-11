@@ -17,11 +17,11 @@ export default function ShotGrid({ title, shots }: ShotGridProps) {
 
   const step = useCallback(
     (dir: 1 | -1) => {
-      setOpen((current) =>
-        current === null
-          ? current
-          : (current + dir + shots.length) % shots.length,
-      );
+      setOpen((current) => {
+        if (current === null) return current;
+        const next = current + dir;
+        return next < 0 || next >= shots.length ? current : next;
+      });
     },
     [shots.length],
   );
@@ -87,23 +87,23 @@ export default function ShotGrid({ title, shots }: ShotGridProps) {
               Close
             </button>
           </div>
-          {shots.length > 1 && (
-            <>
-              <button
-                className="lightbox__nav lightbox__nav--prev"
-                aria-label="Previous shot"
-                onClick={() => step(-1)}
-              >
-                ←
-              </button>
-              <button
-                className="lightbox__nav lightbox__nav--next"
-                aria-label="Next shot"
-                onClick={() => step(1)}
-              >
-                →
-              </button>
-            </>
+          {open > 0 && (
+            <button
+              className="lightbox__nav lightbox__nav--prev"
+              aria-label="Previous shot"
+              onClick={() => step(-1)}
+            >
+              ←
+            </button>
+          )}
+          {open < shots.length - 1 && (
+            <button
+              className="lightbox__nav lightbox__nav--next"
+              aria-label="Next shot"
+              onClick={() => step(1)}
+            >
+              →
+            </button>
           )}
           <img src={shots[open].src} alt={`${title} — shot ${open + 1}`} />
         </div>

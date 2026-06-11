@@ -30,8 +30,8 @@ export default async function GamePage({ params }: Params) {
   if (!game) notFound();
 
   const index = GAMES.findIndex((g) => g.slug === slug);
-  const prev = GAMES[(index - 1 + GAMES.length) % GAMES.length];
-  const next = GAMES[(index + 1) % GAMES.length];
+  const prev = index > 0 ? GAMES[index - 1] : null;
+  const next = index < GAMES.length - 1 ? GAMES[index + 1] : null;
 
   return (
     <>
@@ -88,20 +88,28 @@ export default async function GamePage({ params }: Params) {
 
       {/* previous / back / next gallery */}
       <nav className="game-nav container--wide" aria-label="Galleries">
-        <Link href={`/photos/${prev.slug}/`} className="game-nav__step">
-          <span className="label">← Previous gallery</span>
-          <strong>{prev.title}</strong>
-        </Link>
+        {prev ? (
+          <Link href={`/photos/${prev.slug}/`} className="game-nav__step">
+            <span className="label">← Previous gallery</span>
+            <strong>{prev.title}</strong>
+          </Link>
+        ) : (
+          <span />
+        )}
         <Link href="/photos/" className="game-nav__all">
           All galleries
         </Link>
-        <Link
-          href={`/photos/${next.slug}/`}
-          className="game-nav__step game-nav__step--next"
-        >
-          <span className="label">Next gallery →</span>
-          <strong>{next.title}</strong>
-        </Link>
+        {next ? (
+          <Link
+            href={`/photos/${next.slug}/`}
+            className="game-nav__step game-nav__step--next"
+          >
+            <span className="label">Next gallery →</span>
+            <strong>{next.title}</strong>
+          </Link>
+        ) : (
+          <span />
+        )}
       </nav>
     </>
   );
