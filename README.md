@@ -6,14 +6,6 @@ My personal site — a portfolio and a virtual photography gallery in one.
 
 **Live:** https://sohaibirfann.github.io
 
-## What's here
-
-- **Home** — intro, selected projects, a toolbox of skills, and a short timeline.
-- **Projects** — the full list of things I've built, written up by hand.
-- **About** — a longer bio and a way to get in touch.
-- **Virtual Photography** — screenshots taken inside the games I keep coming
-  back to, one gallery per game with a full-screen viewer.
-
 ## Editing
 
 The whole site is driven by JSON — I never touch a component to update it:
@@ -30,12 +22,9 @@ shows up on the page.
 
 ## Built with
 
-- [Next.js](https://nextjs.org) (App Router, static export)
-- [React](https://react.dev)
-- [TypeScript](https://www.typescriptlang.org)
-- [image-size](https://github.com/image-size/image-size) — reads shot
-  dimensions to lay out the galleries
-- Google Fonts via `next/font`
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
 ## License
 
