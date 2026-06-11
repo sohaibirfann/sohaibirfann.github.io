@@ -1,37 +1,29 @@
 [
   {
-    "slug": "cyberpunk-2077",
-    "title": "Cyberpunk 2077",
-    "developer": "CD Projekt Red",
-    "year": "2020",
-    "blurb": "Night City stops posing for you at street level."
-  },
-  {
-    "slug": "red-dead-redemption-2",
-    "title": "Red Dead Redemption 2",
-    "developer": "Rockstar Games",
-    "year": "2018",
-    "blurb": "The most patient landscape painter in games."
+    "slug": "baldurs-gate-3",
+    "title": "Baldur's Gate 3",
+    "developer": "Larian Studios",
+    "year": "2023",
+    "blurb": "\"My friend, every story benefits from a dragon.\"",
+    "cover": "bg3_dx11_2024-01-12_21-51-07.png",
+    "hero": "bg3_dx11_2024-01-12_20-30-30.png"
   },
   {
     "slug": "ghost-of-tsushima",
     "title": "Ghost of Tsushima",
     "developer": "Sucker Punch Productions",
     "year": "2020",
-    "blurb": "A game built around wind and negative space."
+    "blurb": "A game built around wind and negative space.",
+    "cover": "GhostOfTsushima 2024-05-19 20-28-34.png",
+    "hero": "GhostOfTsushima 2024-06-18 23-55-05.png"
   },
   {
-    "slug": "fallout-4",
-    "title": "Fallout 4",
-    "developer": "Bethesda Game Studios",
-    "year": "2015",
-    "blurb": "Rust, dust, and a sky that forgives nothing."
-  },
-  {
-    "slug": "deathloop",
-    "title": "Deathloop",
-    "developer": "Arkane Lyon",
-    "year": "2021",
-    "blurb": "Same island, same day — different photographs every loop."
+    "slug": "alan-wake-2",
+    "title": "Alan Wake 2",
+    "developer": "Remedy Entertainment",
+    "year": "2023",
+    "blurb": "It's not a loop, it's a spiral.",
+    "cover": "AlanWake2 2024-03-20 09-08-01.png",
+    "hero": "AlanWake2 2024-03-21 22-30-45.png"
   }
 ]
