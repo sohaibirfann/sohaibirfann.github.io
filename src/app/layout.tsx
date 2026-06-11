@@ -48,6 +48,7 @@ export const metadata: Metadata = {
     template: `%s — ${SITE.name}`,
   },
   description: SITE.tagline,
+  icons: { icon: "/icon-light.png" },
 };
 
 export default function RootLayout({
