@@ -4,6 +4,3 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
-
-OPTIMIZATION-PLAN.md
-EDITING.md
