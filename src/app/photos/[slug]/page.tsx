@@ -37,9 +37,9 @@ export default async function GamePage({ params }: Params) {
     <>
       {/* full-screen shot from the game, title resting on it */}
       <section className="game-hero">
-        {game.hero && (
+        {game.heroThumb && (
           <ParallaxShot
-            src={game.hero}
+            src={game.heroThumb}
             alt={`${game.title} — hero shot`}
             strength={0.12}
             eager

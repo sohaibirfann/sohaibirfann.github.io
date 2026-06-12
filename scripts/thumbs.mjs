@@ -6,8 +6,8 @@ import path from "node:path";
 import sharp from "sharp";
 
 const ROOT = path.join(process.cwd(), "public", "photos");
-const MAX_EDGE = 2560;
-const QUALITY = 95;
+const MAX_EDGE = 3200;
+const QUALITY = 96;
 const RASTER = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
 if (!existsSync(ROOT)) process.exit(0);

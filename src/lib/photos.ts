@@ -114,6 +114,8 @@ export interface GameWithShots extends Omit<Game, "cover" | "hero"> {
   /** lighter cover for the index grid; see scripts/thumbs.mjs */
   coverThumb: string | null;
   hero: string | null;
+  /** webp version of the hero behind the game title */
+  heroThumb: string | null;
   shots: Shot[];
 }
 
@@ -126,7 +128,14 @@ export function getGamesWithShots(): GameWithShots[] {
     const shots = getShots(game.slug);
     const cover = pickCover(game.slug, game.cover, shots);
     const hero = pickHero(game.slug, game.hero, shots);
-    return { ...game, cover, coverThumb: thumbOf(cover), hero, shots };
+    return {
+      ...game,
+      cover,
+      coverThumb: thumbOf(cover),
+      hero,
+      heroThumb: thumbOf(hero),
+      shots,
+    };
   });
   return cached;
 }

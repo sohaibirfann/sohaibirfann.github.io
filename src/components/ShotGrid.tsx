@@ -113,7 +113,7 @@ export default function ShotGrid({ title, shots }: ShotGridProps) {
           )}
           <img
             key={open}
-            src={shots[open].src}
+            src={shots[open].thumb}
             alt={`${title} — shot ${open + 1}`}
             className={loaded.has(open) ? "is-loaded" : ""}
             onLoad={() =>
