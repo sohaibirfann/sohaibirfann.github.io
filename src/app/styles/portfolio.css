@@ -1,7 +1,3 @@
-/* ---------------------------------------------------------------
-   Footer
-   --------------------------------------------------------------- */
-
 .site-footer {
   margin-top: auto;
   border-top: 1px solid var(--line);
@@ -21,10 +17,6 @@
   display: flex;
   gap: 1.75rem;
 }
-
-/* ---------------------------------------------------------------
-   Sections — annotated spec-sheet rhythm of the gallery wing
-   --------------------------------------------------------------- */
 
 .section {
   border-top: 1px solid var(--line);
@@ -60,10 +52,6 @@
     position: static;
   }
 }
-
-/* ---------------------------------------------------------------
-   Hero
-   --------------------------------------------------------------- */
 
 .hero {
   padding-block: clamp(4rem, 10vw, 7.5rem) clamp(3.5rem, 8vw, 6rem);
@@ -103,10 +91,6 @@
   color: var(--accent);
 }
 
-/* ---------------------------------------------------------------
-   Inner page hero (e.g. /projects)
-   --------------------------------------------------------------- */
-
 .page-hero {
   padding-block: clamp(3.5rem, 8vw, 6rem) clamp(2.5rem, 5vw, 4rem);
 }
@@ -135,10 +119,6 @@
   max-width: 52ch;
   text-wrap: pretty;
 }
-
-/* ---------------------------------------------------------------
-   Work page — vertical timeline with line and nodes
-   --------------------------------------------------------------- */
 
 .worktl {
   list-style: none;
@@ -230,10 +210,6 @@
   margin-top: 1.2rem;
   color: var(--ink-soft);
 }
-
-/* ---------------------------------------------------------------
-   About page — portrait + prose, then get in touch
-   --------------------------------------------------------------- */
 
 .about-grid {
   display: grid;

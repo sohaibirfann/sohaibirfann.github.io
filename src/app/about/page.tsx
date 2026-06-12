@@ -33,7 +33,7 @@ export default function AboutPage() {
             <Reveal as="figure" className="about-portrait">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={portrait} alt={`Portrait of ${SITE.name}`} />
-              <figcaption className="label">{SITE.role}</figcaption>
+              {/* <figcaption className="label">{SITE.role}</figcaption> */}
             </Reveal>
             <Reveal delay={0.1} className="prose about-prose">
               {SITE.about.map((para, i) => (

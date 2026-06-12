@@ -1,8 +1,3 @@
-/* ---------------------------------------------------------------
-   Night wing — its own chrome: a transparent bar over the imagery
-   (no pill) and a quiet centered footer
-   --------------------------------------------------------------- */
-
 .night-header {
   position: fixed;
   top: 0;
@@ -307,10 +302,6 @@
   color: var(--bone);
 }
 
-/* ---------------------------------------------------------------
-   Night wing — photos index. Tall covers, names that step aside.
-   --------------------------------------------------------------- */
-
 .photos-hero {
   padding-block: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 3vw, 2.5rem);
 }
@@ -382,8 +373,7 @@
   opacity: 0;
 }
 
-/* the title reveals as a slow in-place fade (animation), but hover keeps the
-   quick transition above so it disappears snappily */
+/* Slow name reveal */
 .game-card__name.reveal {
   transform: none;
 }
@@ -399,11 +389,6 @@
   }
 }
 
-/* ---------------------------------------------------------------
-   Night wing — single game page.
-   Full-screen hero shot, info band, then the gallery.
-   --------------------------------------------------------------- */
-
 .game-hero {
   position: relative;
   height: 100svh;
@@ -412,8 +397,6 @@
   background: var(--night-raised);
 }
 
-/* the hero frame is a window: the oversized image inside
-   counter-translates with scroll (see ParallaxShot) */
 .game-hero .plx-img {
   position: absolute;
   left: 0;
@@ -564,10 +547,7 @@
   font-size: 0.85em;
 }
 
-/* ---------------------------------------------------------------
-   Game page footer nav — previous / all galleries / next
-   --------------------------------------------------------------- */
-
+/* Footer */
 .game-nav {
   display: grid;
   grid-template-columns: 1fr auto 1fr;

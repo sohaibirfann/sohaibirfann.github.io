@@ -1,10 +1,3 @@
-/* ------------------------------------------------------------------
-   sohaibirfann.github.io — design tokens
-   Two wings: "gallery" (warm ivory portfolio) and "night" (photo
-   galleries). Type system: Syne for headlines, Instrument Sans for
-   body text, IBM Plex Mono for the small caps labels and navigation.
-   ------------------------------------------------------------------ */
-
 :root {
   /* gallery wing — warm ivory, soft charcoal, muted olive accent */
   --bg-top: #f8f7f1;
@@ -34,10 +27,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* NOTE: no `scroll-behavior: smooth` on html — it would animate the
-   scroll-to-top on every page navigation. Same-page anchor links get
-   smooth scrolling from the SmoothAnchors component instead. */
 
 /* no scrollbar anywhere — the page still scrolls normally */
 html {
@@ -72,10 +61,8 @@ a {
   color: var(--bg-top);
 }
 
-/* ---------------------------------------------------------------
-   Wings
-   --------------------------------------------------------------- */
 
+/* Wings */
 .wing {
   min-height: 100vh;
   display: flex;
@@ -101,17 +88,11 @@ a {
   color: var(--night);
 }
 
-/* deter casual saving of the photography: clicks/right-clicks land on the
-   element behind the image, so the menu has no "save image" and the image
-   can't be dragged out. Not real protection — files are at public URLs. */
+/* Disable right click saving */
 .wing--night img {
   pointer-events: none;
   user-select: none;
 }
-
-/* ---------------------------------------------------------------
-   Shared primitives
-   --------------------------------------------------------------- */
 
 .container {
   width: 100%;
