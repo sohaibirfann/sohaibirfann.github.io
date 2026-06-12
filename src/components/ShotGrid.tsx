@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Reveal from "./Reveal";
 import type { Shot } from "@/lib/photos";
 
@@ -9,13 +9,31 @@ interface ShotGridProps {
   shots: Shot[];
 }
 
-/** Justified gallery: rows of mixed-aspect shots that fill the full
- *  width (flex-grow proportional to aspect ratio), with a keyboard-
- *  navigable lightbox. ← → to move, Esc to close. */
-export default function ShotGrid({ title, shots }: ShotGridProps) {
+/** Interleave landscape (ar ≥ 1) and portrait shots, spreading the
+ *  minority evenly through the majority so rows don't clump. */
+function weaveByOrientation(shots: Shot[]): Shot[] {
+  const land = shots.filter((s) => s.ar >= 1);
+  const port = shots.filter((s) => s.ar < 1);
+  if (!land.length || !port.length) return shots;
+
+  const out: Shot[] = [];
+  let li = 0;
+  let pi = 0;
+  while (li < land.length || pi < port.length) {
+    // place whichever bucket is furthest behind its even spacing
+    const landPos = li < land.length ? (li + 0.5) / land.length : Infinity;
+    const portPos = pi < port.length ? (pi + 0.5) / port.length : Infinity;
+    if (landPos <= portPos) out.push(land[li++]);
+    else out.push(port[pi++]);
+  }
+  return out;
+}
+
+/** Justified gallery with a keyboard-navigable lightbox (← → / Esc). */
+export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
+  const shots = useMemo(() => weaveByOrientation(rawShots), [rawShots]);
   const [open, setOpen] = useState<number | null>(null);
-  // indices whose full-size image has already loaded — revisiting one
-  // shows it instantly instead of spinning again
+  // shots whose full-size image has loaded — revisiting one skips the spinner
   const [loaded, setLoaded] = useState<Set<number>>(() => new Set());
 
   const step = useCallback(

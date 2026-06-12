@@ -22,8 +22,7 @@ export interface Shot {
   ar: number;
 }
 
-/** Files named hero.* and cover.* are reserved (page background and
- *  index-grid cover) and kept out of the gallery grid. */
+/** hero.* and cover.* are reserved and kept out of the gallery grid. */
 function reservedName(f: string) {
   const name = path.parse(f).name.toLowerCase();
   return name === "hero" || name === "cover";
@@ -65,19 +64,14 @@ function listImages(slug: string): string[] {
     .sort();
 }
 
-/** All shots for a game, discovered from public/photos/<slug>/ at build
- *  time and sorted by filename — name files 01.jpg, 02.jpg… to control order. */
+/** A game's shots, discovered at build time and sorted by filename. */
 export function getShots(slug: string): Shot[] {
   return listImages(slug)
     .filter((f) => !reservedName(f))
     .map((f) => readShot(slug, f));
 }
 
-/** Background image for the game page, picked in priority order:
- *  1. the "hero" field in games.json
- *  2. a file named hero.* in the game's folder
- *  3. the widest shot that is at least 21:9
- *  4. the widest shot available */
+/** Game-page background: games.json "hero" → hero.* file → widest shot. */
 function pickHero(slug: string, heroField: string | undefined, shots: Shot[]) {
   if (heroField) return `/photos/${slug}/${heroField}`;
   const heroFile = findReserved(slug, "hero");
@@ -88,10 +82,7 @@ function pickHero(slug: string, heroField: string | undefined, shots: Shot[]) {
   return (ultrawide ?? widest[0]).src;
 }
 
-/** Cover for the index grid, picked in priority order:
- *  1. the "cover" field in games.json
- *  2. a file named cover.* in the game's folder
- *  3. the first shot alphabetically */
+/** Index-grid cover: games.json "cover" → cover.* file → first shot. */
 function pickCover(
   slug: string,
   coverField: string | undefined,

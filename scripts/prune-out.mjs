@@ -1,7 +1,5 @@
-// After export, drop the original gallery shots from out/. The site only
-// serves the webp thumbnails, so the heavy originals don't need publishing.
-// Originals stay in the repo so thumbnails can be regenerated. Runs as
-// package.json "postbuild".
+// After export (postbuild), drop the original gallery shots from out/ —
+// the site only serves the webp thumbnails. Originals stay in the repo.
 import { readdirSync, existsSync, statSync, rmSync } from "node:fs";
 import path from "node:path";
 

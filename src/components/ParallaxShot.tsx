@@ -5,17 +5,14 @@ import { useEffect, useRef } from "react";
 interface ParallaxShotProps {
   src: string;
   alt: string;
-  /** How far the image counter-translates, as a fraction of its own
-   *  height. The image is oversized by 2× this (see .plx-img) so the
-   *  frame never runs out of picture. */
+  /** Counter-translation as a fraction of the image's height; the image
+   *  is oversized to match so the frame never runs out of picture. */
   strength?: number;
   eager?: boolean;
 }
 
-/** An image inside an overflow-hidden frame that counter-translates
- *  with scroll, so the frame slides over a quasi-stationary picture —
- *  the echosmoker gallery effect. The parent element is the window:
- *  give it overflow:hidden and a size. */
+/** Image in an overflow-hidden frame that counter-translates with scroll.
+ *  The parent is the window — give it overflow:hidden and a size. */
 export default function ParallaxShot({
   src,
   alt,
@@ -36,11 +33,9 @@ export default function ParallaxShot({
       const r = frame!.getBoundingClientRect();
       const vh = window.innerHeight;
       if (r.bottom < 0 || r.top > vh) return;
-      // -1 when the frame sits below the viewport, +1 above it
+      // -1 below the viewport, +1 above it
       const p = (vh / 2 - (r.top + r.height / 2)) / ((vh + r.height) / 2);
-      // translateY is relative to the image's own (oversized) height —
-      // rescale so the travel never exceeds the overscan margin. Negative
-      // so scrolling down pans the image up, revealing more of its bottom.
+      // negative so scrolling down pans the image up, revealing its bottom
       const travel = (strength / (1 + 2 * strength)) * 100;
       img!.style.transform = `translate3d(0, ${(-p * travel).toFixed(3)}%, 0)`;
     }
@@ -48,8 +43,7 @@ export default function ParallaxShot({
       if (!raf) raf = requestAnimationFrame(update);
     }
     update();
-    // the heroes are heavy and often decode after first paint — reposition
-    // once they're in so the first scroll doesn't hitch
+    // heavy heroes often decode after first paint — reposition once loaded
     img.addEventListener("load", schedule);
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);

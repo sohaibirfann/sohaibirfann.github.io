@@ -1,6 +1,5 @@
-// Generates web-sized thumbnails for every gallery shot into
-// public/photos/<slug>/thumbs/. Idempotent — skips ones already made.
-// Runs automatically before each build (see package.json "prebuild").
+// Generates webp thumbnails into public/photos/<slug>/thumbs/ (prebuild).
+// Idempotent — skips ones already made.
 import { readdirSync, existsSync, mkdirSync, statSync } from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
