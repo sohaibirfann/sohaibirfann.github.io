@@ -41,7 +41,7 @@ export default async function GamePage({ params }: Params) {
           <ParallaxShot
             src={game.hero}
             alt={`${game.title} — hero shot`}
-            strength={0.22}
+            strength={0.12}
             eager
           />
         )}
