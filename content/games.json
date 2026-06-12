@@ -34,5 +34,14 @@
     "blurb": "It's not a loop, it's a spiral.",
     "cover": "AlanWake2 2024-03-20 09-08-01.png",
     "hero": "AlanWake2 2024-03-21 22-30-45.png"
+  },
+  {
+    "slug": "a-plague-tale-requiem",
+    "title": "A Plague Tale: Requiem",
+    "developer": "Asobo Studio",
+    "year": "2022",
+    "blurb": "A story carried by two children against impossible odds.",
+    "cover": "APlagueTaleRequiem_x64_2023-10-09_22-04-42.png",
+    "hero": "APlagueTaleRequiem_x64_2023-10-08_01-12-52.png"
   }
 ]
