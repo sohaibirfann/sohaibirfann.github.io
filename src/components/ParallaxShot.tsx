@@ -39,9 +39,10 @@ export default function ParallaxShot({
       // -1 when the frame sits below the viewport, +1 above it
       const p = (vh / 2 - (r.top + r.height / 2)) / ((vh + r.height) / 2);
       // translateY is relative to the image's own (oversized) height —
-      // rescale so the travel never exceeds the overscan margin
+      // rescale so the travel never exceeds the overscan margin. Negative
+      // so scrolling down pans the image up, revealing more of its bottom.
       const travel = (strength / (1 + 2 * strength)) * 100;
-      img!.style.transform = `translateY(${(p * travel).toFixed(3)}%)`;
+      img!.style.transform = `translateY(${(-p * travel).toFixed(3)}%)`;
     }
     function schedule() {
       if (!raf) raf = requestAnimationFrame(update);
