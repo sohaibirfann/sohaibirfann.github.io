@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "thumbs": "node scripts/thumbs.mjs",
+    "predev": "node scripts/thumbs.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/thumbs.mjs",
     "build": "next build",
     "start": "next start"
   },
@@ -17,6 +20,7 @@
     "@types/node": "^25.9.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "sharp": "^0.35.1",
     "typescript": "^6.0.3"
   }
 }

@@ -1366,13 +1366,32 @@ a {
   max-width: 100%;
   max-height: 86vh;
   object-fit: contain;
-  animation: lb-zoom 0.35s var(--ease-out);
+  opacity: 0;
+  transform: scale(0.965);
+  transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
 }
 
-@keyframes lb-zoom {
-  from {
-    opacity: 0;
-    transform: scale(0.965);
+.lightbox img.is-loaded {
+  opacity: 1;
+  transform: none;
+}
+
+.lightbox__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: -1.25rem 0 0 -1.25rem;
+  border: 2px solid var(--night-line);
+  border-top-color: var(--bone);
+  border-radius: 50%;
+  animation: lb-spin 0.8s linear infinite;
+}
+
+@keyframes lb-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -1524,7 +1543,7 @@ a {
   }
   .lightbox,
   .lightbox img {
-    animation: none;
+    transition: none;
   }
   .game-card img,
   .teaser__strip img,

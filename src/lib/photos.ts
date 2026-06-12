@@ -16,6 +16,8 @@ const IMAGE_EXTENSIONS = new Set([
 
 export interface Shot {
   src: string;
+  /** smaller webp shown in the grid; see scripts/thumbs.mjs */
+  thumb: string;
   /** width / height — drives the justified gallery rows. */
   ar: number;
 }
@@ -44,7 +46,14 @@ function readShot(slug: string, f: string): Shot {
   } catch {
     // unreadable dimensions — fall back to 16:9
   }
-  return { src: `/photos/${slug}/${f}`, ar };
+  const isRaster = path.extname(f).toLowerCase() !== ".svg";
+  return {
+    src: `/photos/${slug}/${f}`,
+    thumb: isRaster
+      ? `/photos/${slug}/thumbs/${path.parse(f).name}.webp`
+      : `/photos/${slug}/${f}`,
+    ar,
+  };
 }
 
 function listImages(slug: string): string[] {

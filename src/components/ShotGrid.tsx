@@ -14,6 +14,9 @@ interface ShotGridProps {
  *  navigable lightbox. ← → to move, Esc to close. */
 export default function ShotGrid({ title, shots }: ShotGridProps) {
   const [open, setOpen] = useState<number | null>(null);
+  // indices whose full-size image has already loaded — revisiting one
+  // shows it instantly instead of spinning again
+  const [loaded, setLoaded] = useState<Set<number>>(() => new Set());
 
   const step = useCallback(
     (dir: 1 | -1) => {
@@ -58,7 +61,7 @@ export default function ShotGrid({ title, shots }: ShotGridProps) {
               aria-label={`Open shot ${i + 1} of ${shots.length}`}
             >
               <img
-                src={shot.src}
+                src={shot.thumb}
                 alt={`${title} — shot ${i + 1} of ${shots.length}`}
                 loading={i < 6 ? "eager" : "lazy"}
               />
@@ -105,7 +108,20 @@ export default function ShotGrid({ title, shots }: ShotGridProps) {
               →
             </button>
           )}
-          <img src={shots[open].src} alt={`${title} — shot ${open + 1}`} />
+          {!loaded.has(open) && (
+            <div className="lightbox__spinner" aria-hidden="true" />
+          )}
+          <img
+            key={open}
+            src={shots[open].src}
+            alt={`${title} — shot ${open + 1}`}
+            className={loaded.has(open) ? "is-loaded" : ""}
+            onLoad={() =>
+              setLoaded((prev) =>
+                prev.has(open) ? prev : new Set(prev).add(open),
+              )
+            }
+          />
         </div>
       )}
     </>
