@@ -60,6 +60,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${display.variable} ${accent.variable} ${body.variable} ${mono.variable} ${heavy.variable}`}
+        suppressHydrationWarning
       >
         <PhotoTransition />
         <SmoothAnchors />
