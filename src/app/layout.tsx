@@ -32,7 +32,7 @@ const body = Instrument_Sans({
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
 });
 
 // Heavy grotesque caps for the photo wing's titles.
