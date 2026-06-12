@@ -125,10 +125,10 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.15} className="teaser__strip">
               {games.slice(0, 3).map((game) => (
-                <Link key={game.slug} href={`/photos/${game.slug}/`}>
+                <div key={game.slug} className="teaser__shot">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={game.cover!} alt={`${game.title} cover shot`} />
-                </Link>
+                </div>
               ))}
             </Reveal>
           </div>
