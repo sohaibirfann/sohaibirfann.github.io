@@ -28,5 +28,6 @@ shows up on the page.
 
 ## License
 
-Code is [MIT](./LICENSE). The photography is all rights reserved — please ask
-before using it.
+Code is [MIT](./LICENSE). The game screenshots belong to their respective
+publishers and are shared as personal, non-commercial virtual photography —
+please ask before reusing them.
