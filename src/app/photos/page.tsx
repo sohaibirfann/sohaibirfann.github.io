@@ -22,15 +22,23 @@ export default function PhotosIndex() {
 
       <section className="container--wide game-grid">
         {games.map((game, i) => (
-          <Reveal key={game.slug} delay={Math.min((i % 3) * 0.08, 0.24)}>
-            <Link href={`/photos/${game.slug}/`} className="game-card">
-              {game.coverThumb && (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={game.coverThumb} alt={`${game.title} — cover shot`} />
-              )}
-              <span className="game-card__name">{game.title}</span>
-            </Link>
-          </Reveal>
+          <Link
+            key={game.slug}
+            href={`/photos/${game.slug}/`}
+            className="game-card"
+          >
+            {game.coverThumb && (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img src={game.coverThumb} alt={`${game.title} — cover shot`} />
+            )}
+            <Reveal
+              as="span"
+              className="game-card__name"
+              delay={Math.min(0.15 + (i % 3) * 0.1, 0.45)}
+            >
+              {game.title}
+            </Reveal>
+          </Link>
         ))}
       </section>
     </>

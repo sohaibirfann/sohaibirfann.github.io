@@ -382,6 +382,23 @@
   opacity: 0;
 }
 
+/* the title reveals as a slow in-place fade (animation), but hover keeps the
+   quick transition above so it disappears snappily */
+.game-card__name.reveal {
+  transform: none;
+}
+
+.game-card__name.reveal.is-visible {
+  animation: card-name-in 1.25s var(--ease-out) var(--reveal-delay, 0s)
+    backwards;
+}
+
+@keyframes card-name-in {
+  from {
+    opacity: 0;
+  }
+}
+
 /* ---------------------------------------------------------------
    Night wing — single game page.
    Full-screen hero shot, info band, then the gallery.
