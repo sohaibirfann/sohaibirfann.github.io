@@ -1190,7 +1190,7 @@ a {
 
 .game-info__tagline {
   font-family: var(--font-heavy), system-ui, sans-serif;
-  font-size: clamp(1.3rem, 2.8vw, 2.1rem);
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
   line-height: 1.25;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -1359,6 +1359,7 @@ a {
   position: fixed;
   inset: 0;
   z-index: 50;
+  outline: none;
   background: rgba(9, 9, 10, 0.95);
   display: flex;
   align-items: center;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Reveal from "./Reveal";
 import type { Shot } from "@/lib/photos";
 
@@ -35,6 +35,9 @@ export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
   const [open, setOpen] = useState<number | null>(null);
   // shots whose full-size image has loaded — revisiting one skips the spinner
   const [loaded, setLoaded] = useState<Set<number>>(() => new Set());
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
+  const isOpen = open !== null;
 
   const step = useCallback(
     (dir: 1 | -1) => {
@@ -47,19 +50,42 @@ export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
     [shots.length],
   );
 
+  // lock scroll, move focus into the lightbox, restore it to the thumbnail
+  useEffect(() => {
+    if (!isOpen) return;
+    const trigger = triggerRef.current;
+    dialogRef.current?.focus();
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+      trigger?.focus();
+    };
+  }, [isOpen]);
+
+  // keyboard: Esc closes, arrows step, Tab stays trapped in the dialog
   useEffect(() => {
     if (open === null) return;
     function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(null);
-      if (e.key === "ArrowRight") step(1);
-      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "Escape") return setOpen(null);
+      if (e.key === "ArrowRight") return step(1);
+      if (e.key === "ArrowLeft") return step(-1);
+      if (e.key !== "Tab") return;
+      const dialog = dialogRef.current;
+      const focusable = dialog?.querySelectorAll<HTMLElement>("button");
+      if (!dialog || !focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || !dialog.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
+    return () => document.removeEventListener("keydown", onKey);
   }, [open, step]);
 
   return (
@@ -75,7 +101,10 @@ export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
             }}
           >
             <button
-              onClick={() => setOpen(i)}
+              onClick={(e) => {
+                triggerRef.current = e.currentTarget;
+                setOpen(i);
+              }}
               aria-label={`Open shot ${i + 1} of ${shots.length}`}
             >
               <img
@@ -93,7 +122,10 @@ export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
       {open !== null && (
         <div
           className="lightbox"
+          ref={dialogRef}
           role="dialog"
+          aria-modal="true"
+          tabIndex={-1}
           aria-label={`${title} — shot ${open + 1} of ${shots.length}`}
           onClick={(e) => {
             if (e.target === e.currentTarget) setOpen(null);
