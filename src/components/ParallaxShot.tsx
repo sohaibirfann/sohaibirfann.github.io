@@ -42,15 +42,19 @@ export default function ParallaxShot({
       // rescale so the travel never exceeds the overscan margin. Negative
       // so scrolling down pans the image up, revealing more of its bottom.
       const travel = (strength / (1 + 2 * strength)) * 100;
-      img!.style.transform = `translateY(${(-p * travel).toFixed(3)}%)`;
+      img!.style.transform = `translate3d(0, ${(-p * travel).toFixed(3)}%, 0)`;
     }
     function schedule() {
       if (!raf) raf = requestAnimationFrame(update);
     }
     update();
+    // the heroes are heavy and often decode after first paint — reposition
+    // once they're in so the first scroll doesn't hitch
+    img.addEventListener("load", schedule);
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     return () => {
+      img.removeEventListener("load", schedule);
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
       if (raf) cancelAnimationFrame(raf);
