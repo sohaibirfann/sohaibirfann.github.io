@@ -1,0 +1,659 @@
+/* ---------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------- */
+
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.4rem;
+  color: var(--ink-soft);
+}
+
+.site-footer__links {
+  display: flex;
+  gap: 1.75rem;
+}
+
+/* ---------------------------------------------------------------
+   Sections — annotated spec-sheet rhythm of the gallery wing
+   --------------------------------------------------------------- */
+
+.section {
+  border-top: 1px solid var(--line);
+  padding-block: clamp(3.5rem, 8vw, 6rem);
+}
+
+.section__grid {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 2rem 3rem;
+}
+
+.section__label {
+  color: var(--accent);
+  position: sticky;
+  top: 5.5rem;
+  align-self: start;
+}
+
+.section__label small {
+  display: block;
+  color: var(--ink-soft);
+  font-size: inherit;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 760px) {
+  .section__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .section__label {
+    position: static;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(4rem, 10vw, 7.5rem) clamp(3.5rem, 8vw, 6rem);
+}
+
+.hero__path {
+  color: var(--accent);
+  margin-bottom: 1.8rem;
+}
+
+.hero__path b {
+  color: var(--ink-soft);
+  font-weight: inherit;
+}
+
+.hero h1 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--ink-strong);
+  text-wrap: balance;
+  max-width: 14ch;
+}
+
+.hero__tagline {
+  margin-top: 2.4rem;
+  font-family: var(--font-accent), "Courier New", serif;
+  font-size: clamp(1.05rem, 1.9vw, 1.3rem);
+  line-height: 1.75;
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+
+.hero__tagline a {
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------------
+   Inner page hero (e.g. /projects)
+   --------------------------------------------------------------- */
+
+.page-hero {
+  padding-block: clamp(3.5rem, 8vw, 6rem) clamp(2.5rem, 5vw, 4rem);
+}
+
+.page-hero__label {
+  color: var(--accent);
+  margin-bottom: 1.6rem;
+  display: block;
+}
+
+.page-hero h1 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--ink-strong);
+}
+
+.page-hero__sub {
+  margin-top: 1.6rem;
+  font-family: var(--font-accent), "Courier New", serif;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+
+/* ---------------------------------------------------------------
+   Work page — vertical timeline with line and nodes
+   --------------------------------------------------------------- */
+
+.worktl {
+  list-style: none;
+  position: relative;
+  max-width: 46rem;
+  padding-left: 2.25rem;
+}
+
+/* the line */
+.worktl::before {
+  content: "";
+  position: absolute;
+  left: 0.3rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: var(--line);
+}
+
+.worktl__item {
+  position: relative;
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.worktl__item:last-child {
+  padding-bottom: 0;
+}
+
+/* the node */
+.worktl__item::before {
+  content: "";
+  position: absolute;
+  left: -2.25rem;
+  top: 0.35rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--bg-top);
+  border: 2px solid var(--accent);
+}
+
+.worktl__item:first-child::before {
+  background: var(--accent);
+}
+
+.worktl__period {
+  color: var(--accent);
+  margin-bottom: 0.7rem;
+}
+
+.worktl__role {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink-strong);
+}
+
+.worktl__org {
+  margin-top: 0.45rem;
+  color: var(--ink-soft);
+}
+
+.worktl__summary {
+  margin-top: 1rem;
+  font-family: var(--font-accent), "Courier New", serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+.worktl__points {
+  list-style: none;
+  margin-top: 1.1rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
+.worktl__tech {
+  margin-top: 1.2rem;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   About page — portrait + prose, then get in touch
+   --------------------------------------------------------------- */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 2.5rem 4rem;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-portrait {
+    max-width: 22rem;
+  }
+}
+
+.about-portrait {
+  margin: 0;
+  position: sticky;
+  top: 5.5rem;
+}
+
+@media (max-width: 760px) {
+  .about-portrait {
+    position: static;
+  }
+}
+
+.about-portrait img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.about-portrait figcaption {
+  margin-top: 0.7rem;
+  color: var(--ink-soft);
+}
+
+.about-prose p:first-child {
+  font-family: var(--font-accent), "Courier New", serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.contact__lede {
+  font-family: var(--font-accent), "Courier New", serif;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+
+.contact__email {
+  display: inline-block;
+  margin-top: 1.8rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 1rem 1.75rem;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+
+.contact__email:hover {
+  background: var(--ink-strong);
+  border-color: var(--ink-strong);
+  color: var(--bg-top);
+}
+
+.contact__links {
+  display: flex;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.contact__links .m-link {
+  color: var(--accent);
+}
+
+/* "all projects" link under the featured entries */
+.projects-more {
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--line);
+}
+
+.projects-more .m-link {
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------------
+   About
+   --------------------------------------------------------------- */
+
+.prose p {
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+.prose p + p {
+  margin-top: 1.2em;
+}
+
+.prose a {
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------------
+   Projects — editorial entries with a screenshot alongside
+   --------------------------------------------------------------- */
+
+.project {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.project + .project {
+  border-top: 1px dashed var(--line);
+}
+
+.project__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.project__head h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4.2vw, 2.8rem);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--ink-strong);
+}
+
+.project__head h3 a {
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-size: 0% 3px;
+  background-position: 0 100%;
+  transition: background-size 0.35s var(--ease-out);
+}
+
+.project__head h3 a:hover {
+  background-size: 100% 3px;
+}
+
+.project__year {
+  color: var(--ink-soft);
+}
+
+.project__tagline {
+  font-family: var(--font-accent), "Courier New", serif;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin-bottom: 1.8rem;
+  text-wrap: pretty;
+}
+
+.project__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem 3rem;
+  align-items: start;
+}
+
+/* alternate the screenshot side, entry by entry */
+.project:nth-of-type(even) .project__figure {
+  order: -1;
+}
+
+@media (max-width: 820px) {
+  .project__body {
+    grid-template-columns: 1fr;
+  }
+  .project:nth-of-type(even) .project__figure {
+    order: 0;
+  }
+}
+
+.project__figure {
+  position: sticky;
+  top: 5.5rem;
+  margin: 0;
+}
+
+@media (max-width: 820px) {
+  .project__figure {
+    position: static;
+  }
+}
+
+.project__figure img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--panel);
+}
+
+.project__figure figcaption {
+  margin-top: 0.7rem;
+  color: var(--ink-soft);
+}
+
+.project__details {
+  list-style: none;
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  margin-top: 1.8rem;
+  display: grid;
+  gap: 0.7rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.project__meta {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.6rem;
+  color: var(--ink-soft);
+}
+
+.project__repo {
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------------
+   Skills + timeline
+   --------------------------------------------------------------- */
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2.2rem 2.5rem;
+}
+
+.skills__group h4 {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.skills__group ul {
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.timeline {
+  list-style: none;
+  display: grid;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem 2rem;
+  padding-block: 1.6rem;
+}
+
+.timeline li + li {
+  border-top: 1px solid var(--line);
+}
+
+.timeline__period {
+  color: var(--accent);
+  padding-top: 0.35rem;
+}
+
+.timeline h4 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  color: var(--ink-strong);
+  margin-bottom: 0.4rem;
+}
+
+.timeline p {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+@media (max-width: 600px) {
+  .timeline li {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Photo teaser — the doorway into the dark wing
+   --------------------------------------------------------------- */
+
+.teaser {
+  background: var(--night);
+  color: var(--bone);
+  --line: var(--night-line);
+  --ink-soft: var(--bone-soft);
+  padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.teaser__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 820px) {
+  .teaser__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.teaser h2 {
+  font-family: var(--font-heavy), system-ui, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+
+.teaser__label {
+  color: var(--bone-soft);
+  margin-bottom: 1.3rem;
+  display: block;
+}
+
+.teaser p {
+  margin-top: 1.4rem;
+  color: var(--bone-soft);
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+
+.teaser__cta {
+  display: inline-block;
+  margin-top: 2.2rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bone);
+  border: 1px solid var(--night-line);
+  border-radius: 999px;
+  padding: 0.95rem 1.6rem;
+  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.teaser__cta:hover {
+  border-color: var(--bone);
+  background: var(--bone);
+  color: var(--night);
+}
+
+.teaser__strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  align-self: stretch;
+}
+
+.teaser__shot {
+  height: 100%;
+  overflow: hidden;
+  /* dissolve the top and bottom edges into the black section */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 16%,
+    #000 84%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 16%,
+    #000 84%,
+    transparent
+  );
+}
+
+.teaser__strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85);
+  transition: filter 0.5s var(--ease-out);
+}
+

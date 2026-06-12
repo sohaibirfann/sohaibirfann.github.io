@@ -1,0 +1,186 @@
+/* ------------------------------------------------------------------
+   sohaibirfann.github.io — design tokens
+   Two wings: "gallery" (warm ivory portfolio) and "night" (photo
+   galleries). Type system: Syne for headlines, Instrument Sans for
+   body text, IBM Plex Mono for the small caps labels and navigation.
+   ------------------------------------------------------------------ */
+
+:root {
+  /* gallery wing — warm ivory, soft charcoal, muted olive accent */
+  --bg-top: #f8f7f1;
+  --bg-bottom: #ebeae1;
+  --panel: #e7e6dd;
+  --ink: #3a3935;
+  --ink-strong: #232220;
+  --ink-soft: #7b786c;
+  --accent: #6e6a52;
+  --line: rgba(58, 57, 53, 0.16);
+  --line-strong: rgba(58, 57, 53, 0.45);
+
+  /* night wing */
+  --night: #0c0c0d;
+  --night-raised: #151517;
+  --bone: #ededeb;
+  --bone-soft: #8e8e8a;
+  --night-line: rgba(237, 237, 235, 0.14);
+
+  --ease-out: cubic-bezier(0.22, 0.68, 0.32, 1);
+  --measure: 60ch;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* NOTE: no `scroll-behavior: smooth` on html — it would animate the
+   scroll-to-top on every page navigation. Same-page anchor links get
+   smooth scrolling from the SmoothAnchors component instead. */
+
+/* no scrollbar anywhere — the page still scrolls normally */
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  background: var(--bg-bottom);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bg-top);
+}
+
+/* ---------------------------------------------------------------
+   Wings
+   --------------------------------------------------------------- */
+
+.wing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wing--gallery {
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom) 40rem);
+  color: var(--ink);
+}
+
+.wing--night {
+  background: var(--night);
+  color: var(--bone);
+  --line: var(--night-line);
+  --line-strong: rgba(237, 237, 235, 0.4);
+  --ink-soft: var(--bone-soft);
+  --accent: var(--bone-soft);
+}
+
+.wing--night ::selection {
+  background: var(--bone);
+  color: var(--night);
+}
+
+/* deter casual saving of the photography: clicks/right-clicks land on the
+   element behind the image, so the menu has no "save image" and the image
+   can't be dragged out. Not real protection — files are at public URLs. */
+.wing--night img {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------------------------------------------------------------
+   Shared primitives
+   --------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: 74rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* the photo wing runs wider — images are the point */
+.container--wide {
+  width: 100%;
+  max-width: 110rem;
+  margin-inline: auto;
+  padding-inline: clamp(0.75rem, 2.5vw, 2rem);
+}
+
+/* small mono caps — the system's annotation voice */
+.label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* inline text links */
+.u-link {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  transition: color 0.25s var(--ease-out);
+  padding-bottom: 1px;
+}
+
+.u-link:hover {
+  color: var(--ink-strong);
+}
+
+.wing--night .u-link:hover {
+  color: #fff;
+}
+
+/* mono label links used in nav / footer — underline grows on hover */
+.m-link {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  transition: background-size 0.3s var(--ease-out), color 0.25s var(--ease-out);
+}
+
+.m-link:hover,
+.m-link[aria-current="page"] {
+  background-size: 100% 1px;
+}
+
+.m-link[aria-current="page"] {
+  color: var(--ink-strong);
+}
+
+.wing--night .m-link[aria-current="page"] {
+  color: var(--bone);
+}
+

@@ -9,7 +9,11 @@ import {
 import { SITE } from "@/lib/content";
 import PhotoTransition from "@/components/PhotoTransition";
 import SmoothAnchors from "@/components/SmoothAnchors";
-import "./globals.css";
+import "./styles/base.css";
+import "./styles/header.css";
+import "./styles/portfolio.css";
+import "./styles/photos.css";
+import "./styles/lightbox.css";
 
 // Slab serif headlines + typewriter accent, after joseocando.com.
 const display = Zilla_Slab({
