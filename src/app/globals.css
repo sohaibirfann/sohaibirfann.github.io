@@ -1579,6 +1579,12 @@ a {
   padding-inline: clamp(2rem, 6vw, 8rem);
 }
 
+@media (max-width: 640px) {
+  .shot-grid {
+    padding-inline: 0.5rem;
+  }
+}
+
 .shot-grid .reveal {
   overflow: hidden;
   background: var(--night-raised);
@@ -1670,6 +1676,35 @@ a {
   color: #fff;
 }
 
+.game-nav__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* the arrow button only shows in the compact mobile layout */
+.game-nav__arrow {
+  display: none;
+}
+
+/* chevron drawn from two borders — an arrow head with no tail */
+.game-nav__arrow::before {
+  content: "";
+  display: block;
+  width: 0.62rem;
+  height: 0.62rem;
+  border: solid var(--bone);
+  border-width: 3px 3px 0 0;
+}
+
+.game-nav__step .game-nav__arrow::before {
+  transform: translateX(1px) rotate(225deg);
+}
+
+.game-nav__step--next .game-nav__arrow::before {
+  transform: translateX(-1px) rotate(45deg);
+}
+
 .game-nav__all {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-weight: 400;
@@ -1701,6 +1736,19 @@ a {
     grid-column: 1 / -1;
     grid-row: 2;
     justify-self: center;
+  }
+  .game-nav__step .label {
+    display: none;
+  }
+  .game-nav__step strong {
+    font-size: 0.9rem;
+  }
+  .game-nav__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.25rem;
   }
 }
 

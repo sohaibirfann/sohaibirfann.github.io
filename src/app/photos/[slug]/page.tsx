@@ -91,7 +91,10 @@ export default async function GamePage({ params }: Params) {
         {prev ? (
           <Link href={`/photos/${prev.slug}/`} className="game-nav__step">
             <span className="label">← Previous gallery</span>
-            <strong>{prev.title}</strong>
+            <span className="game-nav__title">
+              <span className="game-nav__arrow" aria-hidden="true" />
+              <strong>{prev.title}</strong>
+            </span>
           </Link>
         ) : (
           <span />
@@ -105,7 +108,10 @@ export default async function GamePage({ params }: Params) {
             className="game-nav__step game-nav__step--next"
           >
             <span className="label">Next gallery →</span>
-            <strong>{next.title}</strong>
+            <span className="game-nav__title">
+              <strong>{next.title}</strong>
+              <span className="game-nav__arrow" aria-hidden="true" />
+            </span>
           </Link>
         ) : (
           <span />
