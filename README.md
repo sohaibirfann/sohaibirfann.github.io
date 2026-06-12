@@ -28,4 +28,5 @@ shows up on the page.
 
 ## License
 
-[MIT](./LICENSE)
+Code is [MIT](./LICENSE). The photography is all rights reserved — please ask
+before using it.
