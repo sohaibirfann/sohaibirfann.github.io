@@ -34,7 +34,7 @@ export default function PhotosIndex() {
             <Reveal
               as="span"
               className="game-card__name"
-              delay={Math.min(0.15 + (i % 3) * 0.1, 0.45)}
+              delay={Math.min(0.45 + (i % 3) * 0.12, 0.81)}
             >
               {game.title}
             </Reveal>

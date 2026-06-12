@@ -366,16 +366,19 @@
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
-  transition: opacity 0.45s var(--ease-out);
+  transition: opacity 0.6s var(--ease-out);
 }
 
 .pointer-active .game-card:hover .game-card__name {
   opacity: 0;
 }
 
-/* Slow name reveal */
+/* No slide, and a clean fast hover transition (overrides the global .reveal
+   timing + delay). The reveal itself is the animation below — it forces the
+   fade in and carries the stagger delay. */
 .game-card__name.reveal {
   transform: none;
+  transition: opacity 0.6s var(--ease-out);
 }
 
 .game-card__name.reveal.is-visible {
