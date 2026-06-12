@@ -18,6 +18,15 @@
     "hero": "GhostOfTsushima 2024-06-18 23-55-05.png"
   },
   {
+    "slug": "red-dead-redemption-2",
+    "title": "Red Dead Redemption 2",
+    "developer": "Rockstar Games",
+    "year": "2018",
+    "blurb": "Outlaws chasing a world already moving on.",
+    "cover": "RDR2_2023-07-20_01-11-191.png",
+    "hero": "RDR2_2023-09-25_14-32-13.png"
+  },
+  {
     "slug": "alan-wake-2",
     "title": "Alan Wake 2",
     "developer": "Remedy Entertainment",
