@@ -101,6 +101,14 @@ a {
   color: var(--night);
 }
 
+/* deter casual saving of the photography: clicks/right-clicks land on the
+   element behind the image, so the menu has no "save image" and the image
+   can't be dragged out. Not real protection — files are at public URLs. */
+.wing--night img {
+  pointer-events: none;
+  user-select: none;
+}
+
 /* ---------------------------------------------------------------
    Shared primitives
    --------------------------------------------------------------- */
@@ -1078,11 +1086,10 @@ a {
   height: 100%;
   object-fit: cover;
   filter: saturate(0.9) brightness(0.85);
-  transition: transform 0.8s var(--ease-out), filter 0.6s var(--ease-out);
+  transition: filter 0.6s var(--ease-out);
 }
 
 .game-card:hover img {
-  transform: scale(1.04);
   filter: saturate(1.05) brightness(1);
 }
 
@@ -1245,12 +1252,11 @@ a {
   height: 100%;
   object-fit: cover;
   filter: saturate(0.9);
-  transition: filter 0.4s var(--ease-out), transform 0.6s var(--ease-out);
+  transition: filter 0.4s var(--ease-out);
 }
 
 .shot-grid button:hover img {
   filter: saturate(1.05);
-  transform: scale(1.02);
 }
 
 .shot-grid__empty {
@@ -1372,13 +1378,11 @@ a {
   max-height: 86vh;
   object-fit: contain;
   opacity: 0;
-  transform: scale(0.965);
-  transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+  transition: opacity 0.35s var(--ease-out);
 }
 
 .lightbox img.is-loaded {
   opacity: 1;
-  transform: none;
 }
 
 .lightbox__spinner {
