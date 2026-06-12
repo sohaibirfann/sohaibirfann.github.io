@@ -24,9 +24,9 @@ export default function PhotosIndex() {
         {games.map((game, i) => (
           <Reveal key={game.slug} delay={Math.min((i % 3) * 0.08, 0.24)}>
             <Link href={`/photos/${game.slug}/`} className="game-card">
-              {game.cover && (
+              {game.coverThumb && (
                 /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={game.cover} alt={`${game.title} — cover shot`} />
+                <img src={game.coverThumb} alt={`${game.title} — cover shot`} />
               )}
               <span className="game-card__name">{game.title}</span>
             </Link>

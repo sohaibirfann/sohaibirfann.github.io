@@ -127,7 +127,7 @@ export default function Home() {
               {games.slice(0, 3).map((game) => (
                 <div key={game.slug} className="teaser__shot">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={game.cover!} alt={`${game.title} cover shot`} />
+                  <img src={game.coverThumb!} alt={`${game.title} cover shot`} />
                 </div>
               ))}
             </Reveal>

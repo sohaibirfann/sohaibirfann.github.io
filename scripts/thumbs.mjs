@@ -6,7 +6,8 @@ import path from "node:path";
 import sharp from "sharp";
 
 const ROOT = path.join(process.cwd(), "public", "photos");
-const MAX_EDGE = 1280;
+const MAX_EDGE = 2560;
+const QUALITY = 95;
 const RASTER = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
 if (!existsSync(ROOT)) process.exit(0);
@@ -29,7 +30,7 @@ for (const slug of readdirSync(ROOT)) {
     if (existsSync(out)) continue;
     await sharp(path.join(dir, file))
       .resize(MAX_EDGE, MAX_EDGE, { fit: "inside", withoutEnlargement: true })
-      .webp({ quality: 72 })
+      .webp({ quality: QUALITY })
       .toFile(out);
     made += 1;
     console.log("thumb", path.relative(process.cwd(), out));

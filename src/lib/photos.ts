@@ -101,8 +101,18 @@ function pickCover(
   return findReserved(slug, "cover") ?? shots[0]?.src ?? null;
 }
 
+/** The webp thumbnail for a /photos/<slug>/<file> path. */
+function thumbOf(src: string | null): string | null {
+  if (!src || src.toLowerCase().endsWith(".svg")) return src;
+  const slash = src.lastIndexOf("/");
+  const base = src.slice(slash + 1).replace(/\.[^.]+$/, "");
+  return `${src.slice(0, slash)}/thumbs/${base}.webp`;
+}
+
 export interface GameWithShots extends Omit<Game, "cover" | "hero"> {
   cover: string | null;
+  /** lighter cover for the index grid; see scripts/thumbs.mjs */
+  coverThumb: string | null;
   hero: string | null;
   shots: Shot[];
 }
@@ -116,7 +126,7 @@ export function getGamesWithShots(): GameWithShots[] {
     const shots = getShots(game.slug);
     const cover = pickCover(game.slug, game.cover, shots);
     const hero = pickHero(game.slug, game.hero, shots);
-    return { ...game, cover, hero, shots };
+    return { ...game, cover, coverThumb: thumbOf(cover), hero, shots };
   });
   return cached;
 }
