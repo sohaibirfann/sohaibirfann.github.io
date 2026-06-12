@@ -8,7 +8,6 @@ export default function PhotosFooter() {
   return (
     <footer className="night-footer">
       <span className="night-footer__mark">{SITE.name}</span>
-      <span className="label">all shots captured in-game</span>
       <div className="night-footer__links">
         <Link href="/" className="m-link">
           Index
@@ -25,6 +24,17 @@ export default function PhotosFooter() {
           </a>
         )}
       </div>
+      <span className="night-footer__credit label">
+        Inspired by{" "}
+        <a
+          className="u-link"
+          href="https://www.echosmoker.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          echosmoker.com
+        </a>
+      </span>
     </footer>
   );
 }
