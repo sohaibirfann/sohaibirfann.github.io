@@ -334,7 +334,7 @@
   position: relative;
   display: block;
   text-decoration: none;
-  aspect-ratio: 12 / 13;
+  aspect-ratio: 181 / 240;
   overflow: hidden;
   background: var(--night-raised);
 }
@@ -347,7 +347,7 @@
   transition: filter 0.6s var(--ease-out);
 }
 
-.game-card:hover img {
+.pointer-active .game-card:hover img {
   filter: saturate(1.05) brightness(1);
 }
 
@@ -369,7 +369,7 @@
   transition: opacity 0.45s var(--ease-out);
 }
 
-.game-card:hover .game-card__name {
+.pointer-active .game-card:hover .game-card__name {
   opacity: 0;
 }
 

@@ -9,6 +9,7 @@ import {
 import { SITE } from "@/lib/content";
 import PhotoTransition from "@/components/PhotoTransition";
 import SmoothAnchors from "@/components/SmoothAnchors";
+import PointerActive from "@/components/PointerActive";
 import "./styles/base.css";
 import "./styles/header.css";
 import "./styles/portfolio.css";
@@ -68,6 +69,7 @@ export default function RootLayout({
       >
         <PhotoTransition />
         <SmoothAnchors />
+        <PointerActive />
         {children}
       </body>
     </html>
