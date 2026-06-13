@@ -51,12 +51,26 @@ const heavy = Archivo_Black({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sohaibirfann.github.io"),
   title: {
     default: `${SITE.name} — ${SITE.role}`,
     template: `%s — ${SITE.name}`,
   },
   description: SITE.tagline,
   icons: { icon: "/icon-light.png" },
+  openGraph: {
+    type: "website",
+    siteName: SITE.name,
+    url: "/",
+    title: `${SITE.name} — ${SITE.role}`,
+    description: SITE.tagline,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — ${SITE.role}`,
+    description: SITE.tagline,
+  },
 };
 
 export default function RootLayout({
