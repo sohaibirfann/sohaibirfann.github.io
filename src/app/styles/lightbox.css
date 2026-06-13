@@ -5,10 +5,19 @@
   outline: none;
   background: rgba(9, 9, 10, 0.95);
   display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 2vh, 1.25rem);
+  padding: clamp(0.85rem, 3vw, 2rem);
+  animation: lb-fade 0.25s var(--ease-out);
+}
+
+.lightbox__stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(1rem, 4vw, 3rem);
-  animation: lb-fade 0.25s var(--ease-out);
 }
 
 @keyframes lb-fade {
@@ -19,7 +28,7 @@
 
 .lightbox img {
   max-width: 100%;
-  max-height: 86vh;
+  max-height: 100%;
   object-fit: contain;
   opacity: 0;
   transition: opacity 0.35s var(--ease-out);
@@ -49,56 +58,68 @@
 }
 
 .lightbox__bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.1rem clamp(1rem, 4vw, 3rem);
   color: var(--bone-soft);
+}
+
+/* circular translucent controls — legible on any photo, tappable on mobile */
+.lightbox__btn,
+.lightbox__nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(10, 10, 11, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--bone);
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s var(--ease-out);
+}
+
+.lightbox__btn:hover,
+.lightbox__nav:not(:disabled):hover {
+  background: rgba(10, 10, 11, 0.8);
+}
+
+.lightbox__nav:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 .lightbox__btn {
-  background: none;
-  border: 0;
-  padding: 0.25rem;
-  color: var(--bone-soft);
-  font-size: 1.4rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: color 0.25s var(--ease-out);
+  font-size: 1.05rem;
 }
 
-.lightbox__btn:hover {
-  color: var(--bone);
+/* prev/next sit centred in a row below the image */
+.lightbox__nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.lightbox__nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: 0;
-  color: var(--bone-soft);
-  font-size: 2rem;
-  line-height: 1;
-  padding: 1.5rem 1rem;
-  cursor: pointer;
-  transition: color 0.25s var(--ease-out);
+/* a CSS chevron centres exactly, unlike the arrow glyph */
+.lightbox__nav::before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border: solid currentColor;
+  border-width: 2px 2px 0 0;
 }
 
-.lightbox__nav:hover {
-  color: var(--bone);
+.lightbox__nav--prev::before {
+  transform: translateX(2px) rotate(225deg);
 }
 
-.lightbox__nav--prev {
-  left: 0;
-}
-
-.lightbox__nav--next {
-  right: 0;
+.lightbox__nav--next::before {
+  transform: translateX(-2px) rotate(45deg);
 }
 
 /* ---------------------------------------------------------------

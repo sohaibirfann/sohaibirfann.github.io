@@ -144,38 +144,36 @@ export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
               ✕
             </button>
           </div>
-          {open > 0 && (
+          <div className="lightbox__stage" onClick={() => setOpen(null)}>
+            {!loaded.has(open) && (
+              <div className="lightbox__spinner" aria-hidden="true" />
+            )}
+            <img
+              key={open}
+              src={shots[open].thumb}
+              alt={`${title} — shot ${open + 1}`}
+              className={loaded.has(open) ? "is-loaded" : ""}
+              onLoad={() =>
+                setLoaded((prev) =>
+                  prev.has(open) ? prev : new Set(prev).add(open),
+                )
+              }
+            />
+          </div>
+          <div className="lightbox__nav-bar">
             <button
               className="lightbox__nav lightbox__nav--prev"
               aria-label="Previous shot"
               onClick={() => step(-1)}
-            >
-              ←
-            </button>
-          )}
-          {open < shots.length - 1 && (
+              disabled={open === 0}
+            />
             <button
               className="lightbox__nav lightbox__nav--next"
               aria-label="Next shot"
               onClick={() => step(1)}
-            >
-              →
-            </button>
-          )}
-          {!loaded.has(open) && (
-            <div className="lightbox__spinner" aria-hidden="true" />
-          )}
-          <img
-            key={open}
-            src={shots[open].thumb}
-            alt={`${title} — shot ${open + 1}`}
-            className={loaded.has(open) ? "is-loaded" : ""}
-            onLoad={() =>
-              setLoaded((prev) =>
-                prev.has(open) ? prev : new Set(prev).add(open),
-              )
-            }
-          />
+              disabled={open === shots.length - 1}
+            />
+          </div>
         </div>
       )}
     </>
