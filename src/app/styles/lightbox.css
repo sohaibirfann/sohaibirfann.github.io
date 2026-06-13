@@ -140,52 +140,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(100%);
-  transition: transform 0.52s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.photo-wipe--entering,
-.photo-wipe--covered {
+  /* covers instantly on mount, then lifts away slowly to reveal the page */
   transform: translateY(0);
+  transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .photo-wipe--exiting {
   transform: translateY(-100%);
-  transition-duration: 0.6s;
   pointer-events: none;
 }
 
 .photo-wipe__card {
   text-align: center;
   color: #fff;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.45s var(--ease-out) 0.3s,
-    transform 0.45s var(--ease-out) 0.3s;
 }
 
-.photo-wipe--entering .photo-wipe__card,
-.photo-wipe--covered .photo-wipe__card {
-  opacity: 1;
-  transform: none;
-}
-
-.photo-wipe--exiting .photo-wipe__card {
-  opacity: 0;
-  transform: translateY(-12px);
-  transition-delay: 0s;
-  transition-duration: 0.3s;
-}
-
+/* the title settles in — fades up with its tracking tightening, then
+   spreads back out as the curtain leaves */
 .photo-wipe__card strong {
   display: block;
   font-family: var(--font-heavy), system-ui, sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  /* cancel the trailing letter-space so the text is optically centered */
-  margin-right: -0.06em;
+  letter-spacing: 0.08em;
   font-size: clamp(1.5rem, 4vw, 2.8rem);
+  opacity: 0;
+  transform: scale(1.2);
+  transition: opacity 0.6s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-wipe--entering .photo-wipe__card strong,
+.photo-wipe--covered .photo-wipe__card strong {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.photo-wipe--exiting .photo-wipe__card strong {
+  opacity: 0;
+  transform: scale(1);
+  transition-duration: 0.3s;
 }
 
 /* ---------------------------------------------------------------

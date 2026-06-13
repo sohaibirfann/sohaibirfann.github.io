@@ -21,13 +21,10 @@ export interface Site {
   location: string;
   tagline: string;
   intro: string[];
-  /** Show the /work timeline page and its nav links. Flip to true
-   *  once there's a real entry in content/work.json. */
+  /** Flip to true to show the /work page (fill content/work.json first). */
   showWork: boolean;
   links: { github: string; linkedin: string; email: string };
-  /** Longer-form paragraphs for the /about page. */
   about: string[];
-  /** Lede above the email on the get-in-touch section. */
   contactLine: string;
   skills: SkillGroup[];
   timeline: TimelineEntry[];
@@ -37,14 +34,11 @@ export interface Project {
   slug: string;
   name: string;
   year: string;
-  /** Featured projects appear on the home page; all projects appear
-   *  on /projects. */
+  /** Featured projects also show on the home page. */
   featured?: boolean;
   repo: string;
-  /** Optional live/landing page, shown as "Visit site" next to the repo. */
   site?: string;
   tagline: string;
-  /** Screenshot shown beside the entry; file lives in public/projects/. */
   image?: { src: string; alt: string; caption?: string };
   story: string[];
   details: string[];
@@ -56,13 +50,10 @@ export interface Game {
   title: string;
   developer: string;
   year: string;
-  /** One line shown big in the info band on the game's page. */
   blurb: string;
-  /** Optional filename inside public/photos/<slug>/ to use as the cover
-   *  on the gallery index. Defaults to the first image alphabetically. */
+  /** Filename in public/photos/<slug>/ for the index cover (else first shot). */
   cover?: string;
-  /** Optional filename for the full-screen hero behind the game's title.
-   *  Defaults to the cover. */
+  /** Filename for the full-screen hero (else widest shot). */
   hero?: string;
 }
 

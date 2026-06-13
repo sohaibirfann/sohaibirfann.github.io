@@ -9,8 +9,7 @@ interface ShotGridProps {
   shots: Shot[];
 }
 
-/** Interleave landscape (ar ≥ 1) and portrait shots, spreading the
- *  minority evenly through the majority so rows don't clump. */
+/** Interleave landscape and portrait shots so rows don't clump. */
 function weaveByOrientation(shots: Shot[]): Shot[] {
   const land = shots.filter((s) => s.ar >= 1);
   const port = shots.filter((s) => s.ar < 1);
@@ -20,7 +19,6 @@ function weaveByOrientation(shots: Shot[]): Shot[] {
   let li = 0;
   let pi = 0;
   while (li < land.length || pi < port.length) {
-    // place whichever bucket is furthest behind its even spacing
     const landPos = li < land.length ? (li + 0.5) / land.length : Infinity;
     const portPos = pi < port.length ? (pi + 0.5) / port.length : Infinity;
     if (landPos <= portPos) out.push(land[li++]);
@@ -50,7 +48,6 @@ export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
     [shots.length],
   );
 
-  // lock scroll, move focus into the lightbox, restore it to the thumbnail
   useEffect(() => {
     if (!isOpen) return;
     const trigger = triggerRef.current;
@@ -62,7 +59,6 @@ export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
     };
   }, [isOpen]);
 
-  // keyboard: Esc closes, arrows step, Tab stays trapped in the dialog
   useEffect(() => {
     if (open === null) return;
     function onKey(e: KeyboardEvent) {

@@ -3,9 +3,8 @@ import { NAV } from "@/lib/nav";
 import type { useMobileMenu } from "@/hooks/useMobileMenu";
 import SocialLinks from "./SocialLinks";
 
-/** The hamburger button + full-screen overlay menu, shared by both wings.
- *  `prefix` picks the class namespace ("site" or "night"); the wing's CSS
- *  handles the rest (light vs dark, slide-from-left vs rise-from-bottom). */
+/** Hamburger + full-screen menu shared by both wings; `prefix` sets the
+ *  class namespace ("site" / "night"). */
 export default function MobileMenu({
   prefix,
   current,

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-/** Full-screen mobile menu state: open/close with an exit animation, plus
- *  scroll-lock and Escape-to-close while open. */
+/** Mobile menu state: open/close with exit animation, scroll-lock + Escape. */
 export function useMobileMenu() {
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);

@@ -1,8 +1,7 @@
 import { SITE } from "@/lib/content";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "./Icons";
 
-/** GitHub / LinkedIn / Email links. `icon` (default) renders the glyphs used
- *  in the headers; `text` renders the labelled `m-link`s used in the footers. */
+/** GitHub / LinkedIn / Email — `icon` (headers) or `text` (footers). */
 export default function SocialLinks({
   variant = "icon",
 }: {

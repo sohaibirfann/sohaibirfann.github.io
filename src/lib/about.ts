@@ -9,8 +9,7 @@ const CANDIDATES = [
   "portrait.svg",
 ];
 
-/** The /about portrait: drop a portrait.jpg (or .png/.webp) into
- *  public/about/ and it automatically replaces the SVG placeholder. */
+/** The /about portrait — drop a portrait.* into public/about/. */
 export function getPortrait(): string {
   const dir = path.join(process.cwd(), "public", "about");
   for (const file of CANDIDATES) {

@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-const ENTER_MS = 520; // curtain sweep up
-const HOLD_MS = 560; // title card beat while the page swaps underneath
-const EXIT_MS = 600; // curtain sweep away
+const ENTER_MS = 720;
+const HOLD_MS = 200;
+const EXIT_MS = 900;
 
 type Phase = "idle" | "arming" | "entering" | "covered" | "exiting";
 
@@ -13,17 +13,14 @@ function normalize(path: string) {
   return path.replace(/\/+$/, "") || "/";
 }
 
-/** Plays only when stepping INTO the photography wing from elsewhere:
- *  a dark curtain sweeps up over the page, shows a brief title card,
- *  and sweeps away over the gallery. Leaving /photos (or moving within
- *  it) navigates normally. Skipped under prefers-reduced-motion. */
+/** Dark curtain shown only when entering the photography wing from another
+ *  page. Skipped under prefers-reduced-motion. */
 export default function PhotoTransition() {
   const router = useRouter();
   const pathname = usePathname();
   const [phase, setPhase] = useState<Phase>("idle");
   const targetRef = useRef<string | null>(null);
 
-  // intercept clicks that lead from outside the wing to /photos…
   useEffect(() => {
     function onClick(e: MouseEvent) {
       if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey)
@@ -48,7 +45,6 @@ export default function PhotoTransition() {
     return () => document.removeEventListener("click", onClick, true);
   }, []);
 
-  // mount the curtain off-screen for a frame so the sweep can transition
   useEffect(() => {
     if (phase !== "arming") return;
     const raf = requestAnimationFrame(() =>
@@ -57,7 +53,6 @@ export default function PhotoTransition() {
     return () => cancelAnimationFrame(raf);
   }, [phase]);
 
-  // curtain fully up → navigate underneath
   useEffect(() => {
     if (phase !== "entering") return;
     const t = setTimeout(() => {
@@ -67,7 +62,6 @@ export default function PhotoTransition() {
     return () => clearTimeout(t);
   }, [phase, router]);
 
-  // gallery mounted → hold the title card a beat, then sweep away
   useEffect(() => {
     if (phase !== "covered" || !targetRef.current) return;
     if (normalize(pathname) !== normalize(targetRef.current.split(/[?#]/)[0]))

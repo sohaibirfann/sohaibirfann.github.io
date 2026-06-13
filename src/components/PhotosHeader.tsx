@@ -8,9 +8,8 @@ import { useScrollHide } from "@/hooks/useScrollHide";
 import SocialLinks from "./SocialLinks";
 import MobileMenu from "./MobileMenu";
 
-/** The photography wing's header: a transparent bar over the imagery that
- *  slides away on scroll down. On mobile it collapses to a hamburger that
- *  opens a full-screen menu rising from the bottom. */
+/** Photography-wing header: transparent bar that hides on scroll down; a
+ *  hamburger + full-screen menu on mobile. */
 export default function PhotosHeader() {
   const pathname = usePathname();
   const hidden = useScrollHide(140);

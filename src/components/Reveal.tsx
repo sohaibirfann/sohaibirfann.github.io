@@ -10,8 +10,7 @@ interface RevealProps {
   children: React.ReactNode;
 }
 
-/** Fades content up once it scrolls into view. Pure CSS transition;
- *  disabled automatically under prefers-reduced-motion. */
+/** Fades content up once it scrolls into view (respects reduced-motion). */
 export default function Reveal({
   as: Tag = "div",
   delay = 0,

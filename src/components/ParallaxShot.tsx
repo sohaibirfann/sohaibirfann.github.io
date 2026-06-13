@@ -5,14 +5,12 @@ import { useEffect, useRef } from "react";
 interface ParallaxShotProps {
   src: string;
   alt: string;
-  /** Counter-translation as a fraction of the image's height; the image
-   *  is oversized to match so the frame never runs out of picture. */
+  /** Counter-translation as a fraction of the image's height. */
   strength?: number;
   eager?: boolean;
 }
 
-/** Image in an overflow-hidden frame that counter-translates with scroll.
- *  The parent is the window — give it overflow:hidden and a size. */
+/** Image that counter-translates with scroll inside an overflow-hidden parent. */
 export default function ParallaxShot({
   src,
   alt,
@@ -33,7 +31,6 @@ export default function ParallaxShot({
       const r = frame!.getBoundingClientRect();
       const vh = window.innerHeight;
       if (r.bottom < 0 || r.top > vh) return;
-      // -1 below the viewport, +1 above it
       const p = (vh / 2 - (r.top + r.height / 2)) / ((vh + r.height) / 2);
       // negative so scrolling down pans the image up, revealing its bottom
       const travel = (strength / (1 + 2 * strength)) * 100;

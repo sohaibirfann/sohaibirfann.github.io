@@ -2,9 +2,8 @@
 
 import { useEffect } from "react";
 
-/** Adds `pointer-active` to <html> on the first real pointer move, so hover
- *  styles don't fire on load just because the cursor happens to sit over an
- *  element. */
+/** Adds `pointer-active` to <html> on the first pointer move, so hover styles
+ *  don't fire on load when the cursor already sits over an element. */
 export default function PointerActive() {
   useEffect(() => {
     function onMove() {

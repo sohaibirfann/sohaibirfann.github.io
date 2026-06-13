@@ -6,7 +6,6 @@ export default function ProjectEntry({ project }: { project: Project }) {
     <Reveal as="article" className="project">
       <div className="project__head">
         <h3>
-          {/* the big name goes to the landing page when there is one */}
           <a
             href={project.site ?? project.repo}
             target="_blank"

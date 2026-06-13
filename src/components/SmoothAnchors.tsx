@@ -2,9 +2,8 @@
 
 import { useEffect } from "react";
 
-/** Smooth-scrolls same-page anchor links (e.g. /#work from the home
- *  page) without putting `scroll-behavior: smooth` on the page root,
- *  which would visibly animate the scroll-to-top on every navigation. */
+/** Smooth-scrolls same-page anchor links without a global scroll-behavior
+ *  (which would animate scroll-to-top on every navigation). */
 export default function SmoothAnchors() {
   useEffect(() => {
     function onClick(e: MouseEvent) {

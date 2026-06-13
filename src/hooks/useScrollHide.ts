@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-/** True while the user is scrolling down past `threshold`; flips back to false
- *  on scroll up. rAF-throttled. Used to slide headers away. */
+/** True while scrolling down past `threshold`, false on scroll up (rAF-throttled). */
 export function useScrollHide(threshold: number) {
   const [hidden, setHidden] = useState(false);
 

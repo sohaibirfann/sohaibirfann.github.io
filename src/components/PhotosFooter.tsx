@@ -2,8 +2,6 @@ import Link from "next/link";
 import { SITE } from "@/lib/content";
 import SocialLinks from "./SocialLinks";
 
-/** The photography wing's footer: quiet and centered, museum-plaque
- *  style, instead of the portfolio's bordered bar. */
 export default function PhotosFooter() {
   return (
     <footer className="night-footer">
