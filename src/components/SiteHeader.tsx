@@ -7,17 +7,18 @@ import { NAV, isCurrentPath } from "@/lib/nav";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { useScrollHide } from "@/hooks/useScrollHide";
 import SocialLinks from "./SocialLinks";
+import MobileMenu from "./MobileMenu";
 
 export default function SiteHeader() {
   const pathname = usePathname();
   const hidden = useScrollHide(90);
-  const { open, closing, openMenu, closeMenu } = useMobileMenu();
+  const menu = useMobileMenu();
   const current = (href: string) => isCurrentPath(pathname, href);
 
   return (
     <header className={`site-header${hidden ? " site-header--hidden" : ""}`}>
       <div className="site-header__pill">
-        <Link href="/" className="site-header__brand" onClick={closeMenu}>
+        <Link href="/" className="site-header__brand" onClick={menu.closeMenu}>
           {SITE.shortName}
         </Link>
 
@@ -38,42 +39,8 @@ export default function SiteHeader() {
           <SocialLinks />
         </div>
 
-        <button
-          type="button"
-          className={`site-header__toggle${open && !closing ? " is-open" : ""}`}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="site-menu"
-          onClick={() => (open ? closeMenu() : openMenu())}
-        >
-          <span />
-          <span />
-        </button>
+        <MobileMenu prefix="site" current={current} menu={menu} />
       </div>
-
-      {open && (
-        <div
-          className={`site-menu${closing ? " site-menu--closing" : ""}`}
-          id="site-menu"
-        >
-          <nav className="site-menu__nav" aria-label="Site">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="site-menu__link"
-                aria-current={current(item.href) ? "page" : undefined}
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="site-menu__social">
-            <SocialLinks />
-          </div>
-        </div>
-      )}
     </header>
   );
 }

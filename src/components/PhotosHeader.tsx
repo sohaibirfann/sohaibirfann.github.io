@@ -6,6 +6,7 @@ import { NAV, isCurrentPath } from "@/lib/nav";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { useScrollHide } from "@/hooks/useScrollHide";
 import SocialLinks from "./SocialLinks";
+import MobileMenu from "./MobileMenu";
 
 /** The photography wing's header: a transparent bar over the imagery that
  *  slides away on scroll down. On mobile it collapses to a hamburger that
@@ -13,13 +14,13 @@ import SocialLinks from "./SocialLinks";
 export default function PhotosHeader() {
   const pathname = usePathname();
   const hidden = useScrollHide(140);
-  const { open, closing, openMenu, closeMenu } = useMobileMenu();
+  const menu = useMobileMenu();
   const current = (href: string) => isCurrentPath(pathname, href);
 
   return (
     <header className={`night-header${hidden ? " night-header--hidden" : ""}`}>
       <div className="night-header__left">
-        <Link href="/" className="night-header__name" onClick={closeMenu}>
+        <Link href="/" className="night-header__name" onClick={menu.closeMenu}>
           sohaib<em>@</em>irfan
         </Link>
         <nav className="night-header__nav" aria-label="Site">
@@ -40,41 +41,7 @@ export default function PhotosHeader() {
         <SocialLinks />
       </div>
 
-      <button
-        type="button"
-        className={`night-header__toggle${open && !closing ? " is-open" : ""}`}
-        aria-label={open ? "Close menu" : "Open menu"}
-        aria-expanded={open}
-        aria-controls="night-menu"
-        onClick={() => (open ? closeMenu() : openMenu())}
-      >
-        <span />
-        <span />
-      </button>
-
-      {open && (
-        <div
-          className={`night-menu${closing ? " night-menu--closing" : ""}`}
-          id="night-menu"
-        >
-          <nav className="night-menu__nav" aria-label="Site">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="night-menu__link"
-                aria-current={current(item.href) ? "page" : undefined}
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="night-menu__social">
-            <SocialLinks />
-          </div>
-        </div>
-      )}
+      <MobileMenu prefix="night" current={current} menu={menu} />
     </header>
   );
 }
