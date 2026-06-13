@@ -46,32 +46,20 @@ export default async function GamePage({ params }: Params) {
             eager
           />
         )}
-        <h1 className="game-hero__title">{game.title}</h1>
+        <div className="game-hero__caption">
+          <h1 className="game-hero__title">{game.title}</h1>
+          <p className="game-hero__meta">
+            {game.developer} · {game.year} ·{" "}
+            {String(game.shots.length).padStart(2, "0")} shots
+          </p>
+        </div>
         <HeroScrollHint />
       </section>
 
-      {/* tagline + minimal meta */}
       <section className="game-info">
-        <div className="container game-info__grid">
+        <div className="container">
           <Reveal>
             <p className="game-info__tagline">{game.blurb}</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <ul className="game-info__meta">
-              <li>
-                Developed by <b>{game.developer}</b>
-              </li>
-              <li>Released {game.year}</li>
-              <li>
-                {String(game.shots.length).padStart(2, "0")} shots in this
-                gallery
-              </li>
-              <li>
-                <Link href="/photos/" className="u-link">
-                  ← All galleries
-                </Link>
-              </li>
-            </ul>
           </Reveal>
         </div>
       </section>

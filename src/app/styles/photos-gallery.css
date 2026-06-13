@@ -20,7 +20,7 @@
   will-change: transform;
 }
 
-.game-hero__title {
+.game-hero__caption {
   position: absolute;
   z-index: 1;
   left: 0;
@@ -28,16 +28,28 @@
   bottom: clamp(2.5rem, 7vh, 5rem);
   text-align: center;
   padding-inline: var(--gutter);
+  /* the shot lands first; the title card fades in a beat later */
+  animation: hero-fade 1.8s var(--ease-out) 0.55s both;
+}
+
+.game-hero__title {
   font-family: var(--font-heavy), system-ui, sans-serif;
   font-weight: 400;
-  /* size of the game name on its hero shot */
   font-size: clamp(1.5rem, 3.2vw, 2.75rem);
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
-  /* the shot lands first; the name fades in place a beat later */
-  animation: hero-fade 1.8s var(--ease-out) 0.55s both;
+}
+
+.game-hero__meta {
+  margin-top: 0.9rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.7);
 }
 
 @keyframes hero-fade {
@@ -114,47 +126,17 @@
   padding-block: clamp(3rem, 7vw, 5.5rem);
 }
 
-.game-info__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 2.5rem 4rem;
-  align-items: center;
-}
-
-@media (max-width: 760px) {
-  .game-info__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .game-info__tagline {
+  max-width: 26ch;
+  margin-inline: auto;
   font-family: var(--font-heavy), system-ui, sans-serif;
   font-size: clamp(1.6rem, 3.4vw, 2.6rem);
   line-height: 1.25;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #d4d4d1;
-  text-align: right;
+  text-align: center;
   text-wrap: balance;
-}
-
-@media (max-width: 760px) {
-  .game-info__tagline {
-    text-align: left;
-  }
-}
-
-.game-info__meta {
-  list-style: none;
-  display: grid;
-  gap: 0.6rem;
-  color: var(--bone-soft);
-  font-size: 0.97rem;
-}
-
-.game-info__meta b {
-  font-weight: 600;
-  color: var(--bone);
 }
 
 /* justified gallery rows — flex-grow proportional to aspect ratio */
