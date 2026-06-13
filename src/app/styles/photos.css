@@ -451,7 +451,7 @@
   gap: 0.75rem;
   color: var(--bone-soft);
   animation: hero-fade 1.8s var(--ease-out) 1s backwards;
-  transition: opacity 0.4s var(--ease-out);
+  transition: opacity 0.9s var(--ease-out);
 }
 
 /* fades out for good once the user scrolls */
