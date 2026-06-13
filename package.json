@@ -8,7 +8,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/thumbs.mjs",
     "build": "next build",
-    "postbuild": "node scripts/prune-out.mjs",
+    "postbuild": "node scripts/prune-out.mjs && node scripts/og-ext.mjs",
     "start": "next start"
   },
   "dependencies": {
