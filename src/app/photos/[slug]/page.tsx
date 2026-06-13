@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Reveal from "@/components/Reveal";
 import ShotGrid from "@/components/ShotGrid";
 import ParallaxShot from "@/components/ParallaxShot";
 import HeroScrollHint from "@/components/HeroScrollHint";
@@ -54,14 +53,6 @@ export default async function GamePage({ params }: Params) {
           </p>
         </div>
         <HeroScrollHint />
-      </section>
-
-      <section className="game-info">
-        <div className="container">
-          <Reveal>
-            <p className="game-info__tagline">{game.blurb}</p>
-          </Reveal>
-        </div>
       </section>
 
       <div className="container--wide">
