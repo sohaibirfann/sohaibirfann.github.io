@@ -1,0 +1,338 @@
+.game-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 34rem;
+  overflow: hidden;
+  background: var(--night-raised);
+}
+
+.game-hero .plx-img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.plx-img {
+  display: block;
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.game-hero__title {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: clamp(2.5rem, 7vh, 5rem);
+  text-align: center;
+  padding-inline: var(--gutter);
+  font-family: var(--font-heavy), system-ui, sans-serif;
+  font-weight: 400;
+  /* size of the game name on its hero shot */
+  font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+  /* the shot lands first; the name fades in place a beat later */
+  animation: hero-fade 1.8s var(--ease-out) 0.55s both;
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* scroll hint, bottom-right of the hero — a segment runs down a thin bar */
+.game-hero__scroll {
+  position: absolute;
+  z-index: 1;
+  right: clamp(1.25rem, 3vw, 2.75rem);
+  bottom: clamp(2rem, 6vh, 4rem);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--bone-soft);
+  animation: hero-fade 1.8s var(--ease-out) 1s backwards;
+  transition: opacity 0.9s var(--ease-out);
+}
+
+/* fades out for good once the user scrolls */
+.game-hero__scroll.is-gone {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-hero__scroll .label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+}
+
+.game-hero__scroll-track {
+  position: relative;
+  width: 1px;
+  height: 2rem;
+  background: rgba(237, 237, 235, 0.18);
+  overflow: hidden;
+}
+
+.game-hero__scroll-track::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 40%;
+  background: rgba(237, 237, 235, 0.5);
+  animation: scroll-run 2.6s var(--ease-out) infinite;
+}
+
+@keyframes scroll-run {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  35%,
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(250%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-hero__scroll-track::after {
+    animation: none;
+  }
+}
+
+.game-info {
+  background: var(--night-raised);
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+.game-info__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2.5rem 4rem;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .game-info__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.game-info__tagline {
+  font-family: var(--font-heavy), system-ui, sans-serif;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #d4d4d1;
+  text-align: right;
+  text-wrap: balance;
+}
+
+@media (max-width: 760px) {
+  .game-info__tagline {
+    text-align: left;
+  }
+}
+
+.game-info__meta {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  color: var(--bone-soft);
+  font-size: 0.97rem;
+}
+
+.game-info__meta b {
+  font-weight: 600;
+  color: var(--bone);
+}
+
+/* justified gallery rows — flex-grow proportional to aspect ratio */
+.shot-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-block: clamp(2rem, 4vw, 3.5rem) clamp(4rem, 9vw, 7rem);
+  padding-inline: clamp(2rem, 6vw, 8rem);
+}
+
+@media (max-width: 640px) {
+  .shot-grid {
+    padding-inline: 0.5rem;
+  }
+}
+
+.shot-grid .reveal {
+  overflow: hidden;
+  background: var(--night-raised);
+}
+
+.shot-grid__spacer {
+  flex: 999999 1 0%;
+}
+
+.shot-grid button {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.shot-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.9);
+  transition: filter 0.4s var(--ease-out);
+}
+
+.shot-grid button:hover img {
+  filter: saturate(1.05);
+}
+
+.shot-grid__empty {
+  color: var(--bone-soft);
+  border: 1px dashed var(--night-line);
+  padding: 3rem 2rem;
+  max-width: 40rem;
+  margin-bottom: clamp(4rem, 9vw, 7rem);
+}
+
+.shot-grid__empty code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  color: var(--bone);
+  font-size: 0.85em;
+}
+
+/* Footer */
+.game-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  border-top: 1px solid var(--night-line);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.game-nav__step {
+  text-decoration: none;
+  display: grid;
+  gap: 0.6rem;
+  justify-items: start;
+}
+
+.game-nav__step--next {
+  justify-items: end;
+  text-align: right;
+}
+
+.game-nav__step .label {
+  color: var(--bone-soft);
+}
+
+.game-nav__step strong {
+  font-family: var(--font-heavy), system-ui, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+  line-height: 1.1;
+  color: var(--bone);
+  transition: color 0.3s var(--ease-out);
+}
+
+.game-nav__step:hover strong {
+  color: #fff;
+}
+
+.game-nav__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* the arrow button only shows in the compact mobile layout */
+.game-nav__arrow {
+  display: none;
+}
+
+/* chevron drawn from two borders — an arrow head with no tail */
+.game-nav__arrow::before {
+  content: "";
+  display: block;
+  width: 0.62rem;
+  height: 0.62rem;
+  border: solid var(--bone);
+  border-width: 3px 3px 0 0;
+}
+
+.game-nav__step .game-nav__arrow::before {
+  transform: translateX(1px) rotate(225deg);
+}
+
+.game-nav__step--next .game-nav__arrow::before {
+  transform: translateX(-1px) rotate(45deg);
+}
+
+.game-nav__all {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bone);
+  border: 1px solid var(--night-line);
+  border-radius: 999px;
+  padding: 0.9rem 1.5rem;
+  white-space: nowrap;
+  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.game-nav__all:hover {
+  border-color: var(--bone);
+  background: var(--bone);
+  color: var(--night);
+}
+
+@media (max-width: 640px) {
+  .game-nav {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .game-nav__all {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+  }
+  .game-nav__step .label {
+    display: none;
+  }
+  .game-nav__step strong {
+    font-size: 0.9rem;
+  }
+  .game-nav__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.25rem;
+  }
+}
+

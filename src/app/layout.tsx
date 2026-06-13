@@ -13,7 +13,10 @@ import PointerActive from "@/components/PointerActive";
 import "./styles/base.css";
 import "./styles/header.css";
 import "./styles/portfolio.css";
-import "./styles/photos.css";
+import "./styles/projects-skills.css";
+import "./styles/photos-chrome.css";
+import "./styles/photos-index.css";
+import "./styles/photos-gallery.css";
 import "./styles/lightbox.css";
 
 // Slab serif headlines + typewriter accent, after joseocando.com.

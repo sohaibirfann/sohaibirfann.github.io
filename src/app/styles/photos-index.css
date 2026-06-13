@@ -1,0 +1,90 @@
+.photos-hero {
+  padding-block: clamp(6rem, 10vw, 8rem) clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.photos-hero .label {
+  color: var(--bone-soft);
+  display: block;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding-bottom: clamp(4rem, 9vw, 7rem);
+}
+
+@media (max-width: 1000px) {
+  .game-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.game-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  aspect-ratio: 181 / 240;
+  overflow: hidden;
+  background: var(--night-raised);
+}
+
+.game-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.9) brightness(0.85);
+  transition: filter 0.6s var(--ease-out);
+}
+
+.pointer-active .game-card:hover img {
+  filter: saturate(1.05) brightness(1);
+}
+
+/* the name sits centered on the shot and steps aside on hover */
+.game-card__name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  font-family: var(--font-heavy), system-ui, sans-serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.pointer-active .game-card:hover .game-card__name {
+  opacity: 0;
+}
+
+/* No slide, and a clean fast hover transition (overrides the global .reveal
+   timing + delay). The reveal itself is the animation below — it forces the
+   fade in and carries the stagger delay. */
+.game-card__name.reveal {
+  transform: none;
+  transition: opacity 0.6s var(--ease-out);
+}
+
+.game-card__name.reveal.is-visible {
+  animation: card-name-in 1.25s var(--ease-out) var(--reveal-delay, 0s)
+    backwards;
+}
+
+@keyframes card-name-in {
+  from {
+    opacity: 0;
+  }
+}
+
