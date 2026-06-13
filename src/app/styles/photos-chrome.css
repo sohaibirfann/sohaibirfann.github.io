@@ -285,17 +285,33 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.75rem;
+  gap: 2.6rem;
   margin-top: 0.5rem;
 }
 
 .night-footer__credit {
   margin-top: 0.5rem;
-  color: var(--bone-soft);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(237, 237, 235, 0.32);
+}
+
+/* the echosmoker link blends into the grey caption */
+.night-footer__credit a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  transition: color 0.25s var(--ease-out);
+}
+
+.night-footer__credit a:hover {
+  color: var(--bone);
 }
 
 .night-footer .m-link {
-  color: var(--bone-soft);
+  color: #8f8f89;
+  letter-spacing: 0.22em;
 }
 
 .night-footer .m-link:hover {

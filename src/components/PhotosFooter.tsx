@@ -14,14 +14,9 @@ export default function PhotosFooter() {
         </Link>
         <SocialLinks variant="text" />
       </div>
-      <span className="night-footer__credit label">
+      <span className="night-footer__credit">
         Inspired by{" "}
-        <a
-          className="u-link"
-          href="https://www.echosmoker.com"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://www.echosmoker.com" target="_blank" rel="noreferrer">
           echosmoker.com
         </a>
       </span>
