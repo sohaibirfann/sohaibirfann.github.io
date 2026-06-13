@@ -440,6 +440,69 @@
   }
 }
 
+/* scroll hint, bottom-right of the hero — a segment runs down a thin bar */
+.game-hero__scroll {
+  position: absolute;
+  z-index: 1;
+  right: clamp(1.25rem, 3vw, 2.75rem);
+  bottom: clamp(2rem, 6vh, 4rem);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--bone-soft);
+  animation: hero-fade 1.8s var(--ease-out) 1s backwards;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+/* fades out for good once the user scrolls */
+.game-hero__scroll.is-gone {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-hero__scroll .label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+}
+
+.game-hero__scroll-track {
+  position: relative;
+  width: 1px;
+  height: 2rem;
+  background: rgba(237, 237, 235, 0.18);
+  overflow: hidden;
+}
+
+.game-hero__scroll-track::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 40%;
+  background: rgba(237, 237, 235, 0.5);
+  animation: scroll-run 2.6s var(--ease-out) infinite;
+}
+
+@keyframes scroll-run {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  35%,
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(250%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-hero__scroll-track::after {
+    animation: none;
+  }
+}
+
 .game-info {
   background: var(--night-raised);
   padding-block: clamp(3rem, 7vw, 5.5rem);

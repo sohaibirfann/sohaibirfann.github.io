@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import ShotGrid from "@/components/ShotGrid";
 import ParallaxShot from "@/components/ParallaxShot";
+import HeroScrollHint from "@/components/HeroScrollHint";
 import { GAMES } from "@/lib/content";
 import { getGame } from "@/lib/photos";
 
@@ -46,6 +47,7 @@ export default async function GamePage({ params }: Params) {
           />
         )}
         <h1 className="game-hero__title">{game.title}</h1>
+        <HeroScrollHint />
       </section>
 
       {/* tagline + minimal meta */}
