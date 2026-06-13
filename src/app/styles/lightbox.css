@@ -62,22 +62,17 @@
 
 .lightbox__btn {
   background: none;
-  border: 1px solid var(--night-line);
-  border-radius: 999px;
-  color: var(--bone);
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-weight: 400;
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.55rem 1.1rem;
+  border: 0;
+  padding: 0.25rem;
+  color: var(--bone-soft);
+  font-size: 1.4rem;
+  line-height: 1;
   cursor: pointer;
-  transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
+  transition: color 0.25s var(--ease-out);
 }
 
 .lightbox__btn:hover {
-  background: var(--bone);
-  color: var(--night);
+  color: var(--bone);
 }
 
 .lightbox__nav {

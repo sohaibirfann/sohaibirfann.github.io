@@ -136,8 +136,12 @@ export default function ShotGrid({ title, shots: rawShots }: ShotGridProps) {
               {title} · {String(open + 1).padStart(2, "0")} /{" "}
               {String(shots.length).padStart(2, "0")}
             </span>
-            <button className="lightbox__btn" onClick={() => setOpen(null)}>
-              Close
+            <button
+              className="lightbox__btn"
+              onClick={() => setOpen(null)}
+              aria-label="Close"
+            >
+              ✕
             </button>
           </div>
           {open > 0 && (
