@@ -1,4 +1,4 @@
-import Reveal from "./Reveal";
+import Reveal from "@/components/shared/Reveal";
 import type { Project } from "@/lib/content";
 
 export default function ProjectEntry({ project }: { project: Project }) {

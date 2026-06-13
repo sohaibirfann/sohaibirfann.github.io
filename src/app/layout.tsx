@@ -7,9 +7,9 @@ import {
   Archivo_Black,
 } from "next/font/google";
 import { SITE } from "@/lib/content";
-import PhotoTransition from "@/components/PhotoTransition";
-import SmoothAnchors from "@/components/SmoothAnchors";
-import PointerActive from "@/components/PointerActive";
+import PhotoTransition from "@/components/photos/PhotoTransition";
+import SmoothAnchors from "@/components/shared/SmoothAnchors";
+import PointerActive from "@/components/shared/PointerActive";
 import "./styles/base.css";
 import "./styles/header.css";
 import "./styles/portfolio.css";

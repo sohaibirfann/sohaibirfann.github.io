@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/content";
-import SocialLinks from "./SocialLinks";
+import SocialLinks from "@/components/shared/SocialLinks";
 
 export default function PhotosFooter() {
   return (

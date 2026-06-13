@@ -82,7 +82,7 @@ export default async function Image({
           Virtual Photography
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", zIndex: 1 }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               fontFamily: "Archivo Black",

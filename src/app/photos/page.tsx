@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Reveal from "@/components/Reveal";
+import Reveal from "@/components/shared/Reveal";
 import { getGamesWithShots } from "@/lib/photos";
 
 export const metadata: Metadata = {

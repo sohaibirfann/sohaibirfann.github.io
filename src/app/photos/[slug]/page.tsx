@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ShotGrid from "@/components/ShotGrid";
-import ParallaxShot from "@/components/ParallaxShot";
-import HeroScrollHint from "@/components/HeroScrollHint";
+import ShotGrid from "@/components/photos/ShotGrid";
+import ParallaxShot from "@/components/photos/ParallaxShot";
+import HeroScrollHint from "@/components/photos/HeroScrollHint";
 import { GAMES } from "@/lib/content";
 import { getGame } from "@/lib/photos";
 

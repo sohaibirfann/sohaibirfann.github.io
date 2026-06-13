@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Reveal from "./Reveal";
+import Reveal from "@/components/shared/Reveal";
 import type { Shot } from "@/lib/photos";
 
 interface ShotGridProps {

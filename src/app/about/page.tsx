@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Reveal from "@/components/Reveal";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+import Reveal from "@/components/shared/Reveal";
+import SiteHeader from "@/components/site/SiteHeader";
+import SiteFooter from "@/components/site/SiteFooter";
 import { SITE } from "@/lib/content";
 import { getPortrait } from "@/lib/about";
 

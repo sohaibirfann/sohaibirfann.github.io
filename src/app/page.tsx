@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Reveal from "@/components/Reveal";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import ProjectEntry from "@/components/ProjectEntry";
+import Reveal from "@/components/shared/Reveal";
+import SiteHeader from "@/components/site/SiteHeader";
+import SiteFooter from "@/components/site/SiteFooter";
+import ProjectEntry from "@/components/site/ProjectEntry";
 import { SITE, FEATURED_PROJECTS, PROJECTS } from "@/lib/content";
 import { getGamesWithShots } from "@/lib/photos";
 
