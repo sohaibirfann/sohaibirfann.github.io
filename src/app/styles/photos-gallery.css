@@ -131,6 +131,13 @@
   }
 }
 
+/* the scroll hint crowds the title card on small screens */
+@media (max-width: 640px) {
+  .game-hero__scroll {
+    display: none;
+  }
+}
+
 /* justified gallery rows — flex-grow proportional to aspect ratio */
 .shot-grid {
   display: flex;
