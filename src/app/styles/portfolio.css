@@ -327,3 +327,69 @@
   color: var(--accent);
 }
 
+/* ---------------------------------------------------------------
+   404
+   --------------------------------------------------------------- */
+
+.notfound {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem var(--gutter);
+}
+
+.notfound__brand {
+  position: absolute;
+  top: clamp(1.5rem, 4vw, 2.5rem);
+  left: var(--gutter);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-strong);
+}
+
+.notfound__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound__code {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(7rem, 28vw, 18rem);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: var(--ink-strong);
+}
+
+.notfound__title {
+  margin-top: 1.5rem;
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
+}
+
+.notfound__lede {
+  margin-top: 0.75rem;
+  max-width: 42ch;
+  color: var(--ink-soft);
+}
+
+.notfound__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.notfound__links .m-link {
+  color: var(--accent);
+}
+
