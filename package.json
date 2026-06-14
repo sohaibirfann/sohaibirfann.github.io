@@ -9,6 +9,7 @@
     "prebuild": "node scripts/thumbs.mjs",
     "build": "next build",
     "postbuild": "node scripts/prune-out.mjs && node scripts/og-ext.mjs",
+    "typecheck": "tsc --noEmit",
     "start": "next start"
   },
   "dependencies": {
