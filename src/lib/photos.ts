@@ -65,7 +65,7 @@ function listImages(slug: string): string[] {
 }
 
 /** A game's shots, discovered at build time and sorted by filename. */
-export function getShots(slug: string): Shot[] {
+function getShots(slug: string): Shot[] {
   return listImages(slug)
     .filter((f) => !reservedName(f))
     .map((f) => readShot(slug, f));

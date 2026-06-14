@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/content";
-import { NAV, isCurrentPath } from "@/lib/nav";
+import { isCurrentPath } from "@/lib/nav";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { useScrollHide } from "@/hooks/useScrollHide";
 import SocialLinks from "@/components/shared/SocialLinks";
 import MobileMenu from "@/components/shared/MobileMenu";
+import NavLinks from "@/components/shared/NavLinks";
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -22,18 +23,7 @@ export default function SiteHeader() {
           {SITE.shortName}
         </Link>
 
-        <nav className="site-header__nav" aria-label="Site">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="m-link"
-              aria-current={current(item.href) ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks className="site-header__nav" current={current} />
 
         <div className="site-header__social">
           <SocialLinks />

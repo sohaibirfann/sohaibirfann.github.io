@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV, isCurrentPath } from "@/lib/nav";
+import { isCurrentPath } from "@/lib/nav";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { useScrollHide } from "@/hooks/useScrollHide";
 import SocialLinks from "@/components/shared/SocialLinks";
 import MobileMenu from "@/components/shared/MobileMenu";
+import NavLinks from "@/components/shared/NavLinks";
 
 /** Photography-wing header: transparent bar that hides on scroll down; a
  *  hamburger + full-screen menu on mobile. */
@@ -22,18 +23,7 @@ export default function PhotosHeader() {
         <Link href="/" className="night-header__name" onClick={menu.closeMenu}>
           sohaib<em>@</em>irfan
         </Link>
-        <nav className="night-header__nav" aria-label="Site">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="m-link"
-              aria-current={current(item.href) ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks className="night-header__nav" current={current} />
       </div>
 
       <div className="night-header__social">
