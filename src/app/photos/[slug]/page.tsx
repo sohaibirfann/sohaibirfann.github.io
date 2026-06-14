@@ -20,13 +20,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const game = getGame(slug);
   if (!game) return { title: "Virtual Photography" };
 
-  const title = `${game.title} — ${SITE.name}`;
+  const ogTitle = `${game.title} — ${SITE.name}`;
   const description = `${game.shots.length} shots from ${game.title}, captured in photo mode.`;
   return {
-    title: { absolute: title },
+    title: game.title,
     description,
-    openGraph: { title, description },
-    twitter: { title, description },
+    openGraph: { title: ogTitle, description },
+    twitter: { title: ogTitle, description },
   };
 }
 
