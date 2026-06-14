@@ -43,7 +43,7 @@ export default async function Image({
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
-          padding: "72px",
+          padding: "72px 72px 52px",
           background: "#0c0c0d",
           color: "#ededeb",
         }}
@@ -82,30 +82,15 @@ export default async function Image({
           Virtual Photography
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div
-            style={{
-              fontFamily: "Archivo Black",
-              fontSize: 96,
-              lineHeight: 1.0,
-              textTransform: "uppercase",
-            }}
-          >
-            {game?.title ?? "Virtual Photography"}
-          </div>
-          {game && (
-            <div
-              style={{
-                fontFamily: "IBM Plex Mono",
-                fontSize: 26,
-                letterSpacing: "0.06em",
-                color: "rgba(237,237,235,0.7)",
-                marginTop: 18,
-              }}
-            >
-              {`${game.developer} · ${game.year}`}
-            </div>
-          )}
+        <div
+          style={{
+            fontFamily: "Archivo Black",
+            fontSize: 72,
+            lineHeight: 1.0,
+            textTransform: "uppercase",
+          }}
+        >
+          {game?.title ?? "Virtual Photography"}
         </div>
       </div>
     ),

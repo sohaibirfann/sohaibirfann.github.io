@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import ShotGrid from "@/components/photos/ShotGrid";
 import ParallaxShot from "@/components/photos/ParallaxShot";
 import HeroScrollHint from "@/components/photos/HeroScrollHint";
-import { GAMES } from "@/lib/content";
+import { GAMES, SITE } from "@/lib/content";
 import { getGame } from "@/lib/photos";
 
 interface Params {
@@ -18,9 +18,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const game = getGame(slug);
+  if (!game) return { title: "Virtual Photography" };
+
+  const title = `${game.title} — ${SITE.name}`;
+  const description = `${game.shots.length} shots from ${game.title}, captured in photo mode.`;
   return {
-    title: game ? `${game.title} — Virtual Photography` : "Virtual Photography",
-    description: game?.blurb,
+    title: { absolute: title },
+    description,
+    openGraph: { title, description },
+    twitter: { title, description },
   };
 }
 
