@@ -50,6 +50,8 @@ const heavy = Archivo_Black({
   weight: "400",
 });
 
+const shareBio = `${SITE.tagline.split(" — ")[0]}.`;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://sohaibirfann.github.io"),
   title: SITE.name,
@@ -59,14 +61,14 @@ export const metadata: Metadata = {
     type: "website",
     siteName: SITE.name,
     url: "/",
-    title: `${SITE.name} — ${SITE.role}`,
-    description: SITE.tagline,
+    title: SITE.name,
+    description: shareBio,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — ${SITE.role}`,
-    description: SITE.tagline,
+    title: SITE.name,
+    description: shareBio,
   },
 };
 
