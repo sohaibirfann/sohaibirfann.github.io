@@ -1,12 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/shared/Reveal";
+import { SITE } from "@/lib/content";
 import { getGamesWithShots } from "@/lib/photos";
+
+const description =
+  "Virtual photography from inside the games I keep coming back to.";
 
 export const metadata: Metadata = {
   title: "Virtual Photography",
-  description:
-    "Screenshots taken seriously — virtual photography from inside the games I keep coming back to.",
+  description,
+  openGraph: {
+    type: "website",
+    siteName: SITE.name,
+    title: `Virtual Photography — ${SITE.name}`,
+    description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Virtual Photography — ${SITE.name}`,
+    description,
+  },
 };
 
 export default function PhotosIndex() {
