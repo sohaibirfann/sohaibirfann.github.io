@@ -203,7 +203,7 @@
 /* Footer */
 .game-nav {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 2rem;
   border-top: 1px solid var(--night-line);
@@ -270,37 +270,9 @@
   transform: translateX(-1px) rotate(45deg);
 }
 
-.game-nav__all {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-weight: 400;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--bone);
-  border: 1px solid var(--night-line);
-  border-radius: 999px;
-  padding: 0.9rem 1.5rem;
-  white-space: nowrap;
-  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out),
-    color 0.3s var(--ease-out);
-}
-
-.game-nav__all:hover {
-  border-color: var(--bone);
-  background: var(--bone);
-  color: var(--night);
-}
-
 @media (max-width: 640px) {
   .game-nav {
-    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
-  }
-  .game-nav__all {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-self: center;
   }
   .game-nav__step .label {
     display: none;

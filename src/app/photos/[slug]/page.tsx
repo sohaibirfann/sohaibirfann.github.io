@@ -67,7 +67,7 @@ export default async function GamePage({ params }: Params) {
         )}
       </div>
 
-      {/* previous / back / next gallery */}
+      {/* previous / next gallery */}
       <nav className="game-nav container--wide" aria-label="Galleries">
         {prev ? (
           <Link href={`/photos/${prev.slug}/`} className="game-nav__step">
@@ -80,9 +80,6 @@ export default async function GamePage({ params }: Params) {
         ) : (
           <span />
         )}
-        <Link href="/photos/" className="game-nav__all">
-          All galleries
-        </Link>
         {next ? (
           <Link
             href={`/photos/${next.slug}/`}
