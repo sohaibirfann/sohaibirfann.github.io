@@ -151,6 +151,10 @@
   .shot-grid {
     padding-inline: 0.5rem;
   }
+  /* let the last shot fill the row instead of leaving a gap */
+  .shot-grid__spacer {
+    display: none;
+  }
 }
 
 .shot-grid .reveal {
