@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { plainAnchorClick } from "@/lib/anchor";
 
 const ENTER_MS = 720;
 const HOLD_MS = 200;
@@ -23,13 +24,10 @@ export default function PhotoTransition() {
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
-      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey)
-        return;
-      const anchor = (e.target as HTMLElement).closest("a");
-      if (!anchor) return;
-      const href = anchor.getAttribute("href");
-      if (!href || anchor.target === "_blank" || anchor.hasAttribute("download"))
-        return;
+      const hit = plainAnchorClick(e);
+      if (!hit) return;
+      const { anchor, href } = hit;
+      if (anchor.target === "_blank" || anchor.hasAttribute("download")) return;
       const url = new URL(href, location.href);
       if (url.origin !== location.origin) return;
       if (!url.pathname.startsWith("/photos")) return;

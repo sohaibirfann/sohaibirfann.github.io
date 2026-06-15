@@ -1,26 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { plainAnchorClick } from "@/lib/anchor";
 
 /** Smooth-scrolls same-page anchor links without a global scroll-behavior
  *  (which would animate scroll-to-top on every navigation). */
 export default function SmoothAnchors() {
   useEffect(() => {
     function onClick(e: MouseEvent) {
-      if (
-        e.defaultPrevented ||
-        e.button !== 0 ||
-        e.metaKey ||
-        e.ctrlKey ||
-        e.shiftKey ||
-        e.altKey
-      )
-        return;
-      const anchor = (e.target as HTMLElement).closest("a");
-      if (!anchor) return;
-      const href = anchor.getAttribute("href");
-      if (!href) return;
-      const url = new URL(href, location.href);
+      if (e.defaultPrevented) return;
+      const hit = plainAnchorClick(e);
+      if (!hit) return;
+      const url = new URL(hit.href, location.href);
       if (url.origin !== location.origin || !url.hash) return;
       if (url.pathname !== location.pathname) return;
       const target = document.querySelector(url.hash);

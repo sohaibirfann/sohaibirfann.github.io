@@ -1,16 +1,14 @@
 import { ImageResponse } from "next/og";
-import fs from "node:fs";
-import path from "node:path";
 import { SITE } from "@/lib/content";
+import { ogFont } from "@/og/shared";
 
 export const dynamic = "force-static";
 export const alt = `${SITE.name} — ${SITE.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const fontDir = path.join(process.cwd(), "src/og/fonts");
-const slab = fs.readFileSync(path.join(fontDir, "ZillaSlab-SemiBold.ttf"));
-const mono = fs.readFileSync(path.join(fontDir, "IBMPlexMono-Regular.ttf"));
+const slab = ogFont("ZillaSlab-SemiBold.ttf");
+const mono = ogFont("IBMPlexMono-Regular.ttf");
 
 export default function Image() {
   return new ImageResponse(

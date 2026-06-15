@@ -1,8 +1,7 @@
 import { ImageResponse } from "next/og";
-import fs from "node:fs";
-import path from "node:path";
 import { GAMES } from "@/lib/content";
 import { getGame } from "@/lib/photos";
+import { ogFont, ogBackground } from "@/og/shared";
 
 export const dynamic = "force-static";
 export const alt = "Virtual Photography";
@@ -13,16 +12,8 @@ export function generateStaticParams() {
   return GAMES.map((game) => ({ slug: game.slug }));
 }
 
-const fontDir = path.join(process.cwd(), "src/og/fonts");
-const heavy = fs.readFileSync(path.join(fontDir, "ArchivoBlack-Regular.ttf"));
-const mono = fs.readFileSync(path.join(fontDir, "IBMPlexMono-Regular.ttf"));
-
-// public/og/<slug>.jpg is rendered by scripts/thumbs.mjs at build time.
-function heroDataUri(slug: string) {
-  const file = path.join(process.cwd(), "public", "og", `${slug}.jpg`);
-  if (!fs.existsSync(file)) return null;
-  return `data:image/jpeg;base64,${fs.readFileSync(file).toString("base64")}`;
-}
+const heavy = ogFont("ArchivoBlack-Regular.ttf");
+const mono = ogFont("IBMPlexMono-Regular.ttf");
 
 export default async function Image({
   params,
@@ -31,7 +22,7 @@ export default async function Image({
 }) {
   const { slug } = await params;
   const game = getGame(slug);
-  const bg = heroDataUri(slug);
+  const bg = ogBackground(slug);
 
   return new ImageResponse(
     (

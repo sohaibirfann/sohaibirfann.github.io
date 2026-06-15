@@ -1,28 +1,20 @@
 import { ImageResponse } from "next/og";
-import fs from "node:fs";
-import path from "node:path";
 import { GAMES } from "@/lib/content";
 import { getGamesWithShots } from "@/lib/photos";
+import { ogFont, ogBackground } from "@/og/shared";
 
 export const dynamic = "force-static";
 export const alt = "Virtual Photography";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const fontDir = path.join(process.cwd(), "src/og/fonts");
-const heavy = fs.readFileSync(path.join(fontDir, "ArchivoBlack-Regular.ttf"));
-const mono = fs.readFileSync(path.join(fontDir, "IBMPlexMono-Regular.ttf"));
-
-function bgUri(slug: string) {
-  const file = path.join(process.cwd(), "public", "og", `${slug}.jpg`);
-  if (!fs.existsSync(file)) return null;
-  return `data:image/jpeg;base64,${fs.readFileSync(file).toString("base64")}`;
-}
+const heavy = ogFont("ArchivoBlack-Regular.ttf");
+const mono = ogFont("IBMPlexMono-Regular.ttf");
 
 export default function Image() {
   const games = getGamesWithShots();
   const shots = games.reduce((n, g) => n + g.shots.length, 0);
-  const strips = GAMES.map((g) => bgUri(g.slug)).filter(Boolean) as string[];
+  const strips = GAMES.map((g) => ogBackground(g.slug)).filter(Boolean) as string[];
   const slice = Math.ceil(1200 / strips.length);
 
   return new ImageResponse(
