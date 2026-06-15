@@ -43,5 +43,14 @@
     "blurb": "A story carried by two children against impossible odds.",
     "cover": "APlagueTaleRequiem_x64_2023-10-09_22-04-42.png",
     "hero": "APlagueTaleRequiem_x64_2023-10-08_01-12-52.png"
-  }
+  },
+  {
+  "slug": "dead-space-remake",
+  "title": "Dead Space",
+  "developer": "Motive Studio",
+  "year": "2023",
+  "blurb": "A haunted house the size of a starship.",
+  "cover": "Dead_Space_2023-11-07_21-42-11.png",
+  "hero": "Dead_Space_2023-05-26_13-06-08.png"
+}
 ]
