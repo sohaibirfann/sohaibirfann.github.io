@@ -1,5 +1,35 @@
 [
   {
+    "slug": "reshade-lut-converter",
+    "name": "ReShade LUT Converter",
+    "year": "2026",
+    "featured": false,
+    "repo": "https://github.com/sohaibirfann/reshade-lut-converter",
+    "site": "https://sohaibirfann.github.io/reshade-lut-converter/",
+    "tagline": "Turn ReShade PNG LUTs into Photoshop .cube files, right in the browser.",
+    "story": [
+      "ReShade color grades live in PNG LUTs, but Photoshop's Color Lookup layer wants .cube files — and there's no built-in way across. Most converters are a CLI you have to install first; this is the no-install version: open a page, drop the PNG, download the .cube.",
+      "It all runs in the browser with the Canvas API, so a LUT never leaves your machine and the tool works offline. It auto-detects the layout — strip, MultiLUT atlas, or HALD — and previews the look on a sample or your own screenshot before you export."
+    ],
+    "image": {
+      "src": "/projects/reshade-lut-converter.png",
+      "alt": "The ReShade LUT Converter interface — a loaded MultiLUT atlas with a grid of LUT thumbnails, and a large before/after preview of an autumn lakeside scene"
+    },
+    "details": [
+      "Auto-detects the input layout — ReShade strip, MultiLUT atlas, or HALD CLUT",
+      "Runs entirely client-side via the Canvas API — nothing is uploaded, works offline",
+      "Live before/after preview with a strength slider that never touches the exported file",
+      "Maps each LUT pixel straight to its 3D cube coordinate, normalizing 8-bit values to 0–1 floats — a direct transcription, no resampling or interpolation",
+      "Framework-free core, cross-checked byte-for-byte across formats in tests"
+    ],
+    "tech": [
+      "TypeScript",
+      "Canvas API",
+      "Vitest",
+      "Playwright"
+    ]
+  },
+  {
     "slug": "meowproof",
     "name": "MeowProof",
     "year": "2026",
@@ -13,8 +43,7 @@
     ],
     "image": {
       "src": "/projects/meowproof-main-window.png",
-      "alt": "MeowProof's main window over a pastel clouds wallpaper — a sleeping cat icon, 'Keyboard Unlocked', and a big Lock Keyboard button",
-      "caption": "fig. 01 — the main window, between naps"
+      "alt": "MeowProof's main window over a pastel clouds wallpaper — a sleeping cat icon, 'Keyboard Unlocked', and a big Lock Keyboard button"
     },
     "details": [
       "System-wide low-level keyboard hook with a global unlock chord that works even while locked",
@@ -44,8 +73,7 @@
     ],
     "image": {
       "src": "/projects/distributed-file-system.svg",
-      "alt": "Architecture sketch: a zero-knowledge coordinator linked to four member nodes, each holding replicated encrypted chunks",
-      "caption": "fig. 02 — how the pieces talk to each other"
+      "alt": "Architecture sketch: a zero-knowledge coordinator linked to four member nodes, each holding replicated encrypted chunks"
     },
     "details": [
       "Client-side AES-256-GCM via the Web Crypto API — the coordinator can't read anything",
