@@ -1,5 +1,38 @@
 [
   {
+    "slug": "easyschema",
+    "name": "EasySchema",
+    "year": "2026",
+    "featured": true,
+    "repo": "https://github.com/sohaibirfann/easyschema",
+    "site": "https://easyschema.vercel.app",
+    "tagline": "Turn plain English into production-ready SQL schemas in seconds.",
+    "story": [
+      "Writing database schemas is repetitive, especially when you're still exploring an idea. EasySchema lets you describe your database in plain English and generates complete SQL schemas, realistic seed data, and an ER diagram without touching a database.",
+      "A FastAPI backend uses Groq's LLM under strict Pydantic validation to produce a dialect-neutral schema, while a deterministic compiler generates PostgreSQL, MySQL, or SQLite SQL. The frontend renders syntax-highlighted SQL, an interactive relationship diagram, and keeps a local history of previous generations."
+    ],
+    "image": {
+      "src": "/projects/easyschema.png",
+      "alt": "EasySchema's generator interface showing generated SQL tables alongside an interactive entity-relationship diagram"
+    },
+    "details": [
+      "Natural language to SQL with support for PostgreSQL, MySQL, and SQLite",
+      "LLM output validated through Pydantic before deterministic SQL compilation",
+      "Interactive ER diagram with automatically drawn foreign-key relationships",
+      "Syntax-highlighted DDL and seed SQL with copy and download support",
+      "Schema history stored locally with one-click restore and reusable prompt presets"
+    ],
+    "tech": [
+      "FastAPI",
+      "Next.js",
+      "TypeScript",
+      "Python",
+      "Pydantic",
+      "Tailwind CSS",
+      "Groq API"
+    ]
+  },
+  {
     "slug": "reshade-lut-converter",
     "name": "ReShade LUT Converter",
     "year": "2026",
