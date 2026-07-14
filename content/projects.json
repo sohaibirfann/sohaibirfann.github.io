@@ -1,5 +1,38 @@
 [
   {
+    "slug": "nexusmods-tracker",
+    "name": "Nexus Mods Tracker",
+    "year": "2026",
+    "featured": false,
+    "repo": "https://github.com/sohaibirfann/nexusmods-tracker",
+    "tagline": "A Discord bot that keeps your server updated whenever your favorite mods get a new release.",
+    "story": [
+      "Keeping track of dozens of Nexus Mods across different games usually means checking mod pages manually and hoping you don't miss an update. Nexus Mods Tracker automates that by watching your favorite mods and posting rich update announcements directly to Discord whenever a new version is released.",
+      "The project is split into a Discord bot and a FastAPI backend. Instead of polling every tracked mod individually, the backend uses Nexus Mods' bulk update feeds to efficiently detect changes, stores shared mod data across servers, and sends the bot everything it needs to post version diffs, changelogs, and download and endorsement growth."
+    ],
+    "image": {
+      "src": "/projects/nexusmods-tracker.png",
+      "alt": "Nexus Mods Tracker posting a Discord update announcement showing the new version, changelog, download statistics, and quick action buttons"
+    },
+    "details": [
+      "Tracks Nexus Mods by name with autocomplete or directly from a mod URL",
+      "Rich Discord announcements with version changes, changelogs, and download and endorsement deltas",
+      "Efficient polling using Nexus Mods' bulk updated feed instead of checking every tracked mod individually",
+      "Multi-server architecture with shared mod records, per-server notification channels, and optional role mentions",
+      "Dockerized microservice architecture with a discord.py bot, FastAPI backend, PostgreSQL, and automated database migrations"
+    ],
+    "tech": [
+      "Python",
+      "discord.py",
+      "FastAPI",
+      "PostgreSQL",
+      "SQLAlchemy",
+      "Alembic",
+      "Docker",
+      "GitHub Actions"
+    ]
+  },
+  {
     "slug": "easyschema",
     "name": "EasySchema",
     "year": "2026",
